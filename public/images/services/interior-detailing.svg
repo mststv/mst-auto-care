@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#1c1c1c"/><stop offset="1" stop-color="#050505"/></radialGradient>
+    <radialGradient id="rg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#E31828" stop-opacity=".45"/><stop offset="1" stop-color="#E31828" stop-opacity="0"/></radialGradient>
+    <linearGradient id="leather" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <ellipse cx="800" cy="495.00000000000006" rx="560" ry="270" fill="url(#rg)"/>
+  <path d="M0,378 C480,288 1120,288 1600,378 L1600,504.00000000000006 C1120,432 480,432 0,504.00000000000006 Z" fill="url(#leather)"/>
+  <path d="M0,450 C480,378 1120,378 1600,450" stroke="#E31828" stroke-width="3" fill="none" stroke-dasharray="10 8" opacity=".8"/>
+  <g transform="translate(800,558)">
+    <circle r="243.00000000000003" fill="none" stroke="#1e1e1e" stroke-width="49.5"/>
+    <circle r="243.00000000000003" fill="none" stroke="#333" stroke-width="2"/>
+    <path d="M-225,-90 A243.00000000000003,243.00000000000003 0 0 1 225,-90" fill="none" stroke="#3a3a3a" stroke-width="4"/>
+    <rect x="-10.8" y="-270" width="21.6" height="54" fill="#E31828"/>
+    <path d="M-243.00000000000003,0 L-72,18 M243.00000000000003,0 L72,18 M0,81 L0,243.00000000000003" stroke="#1e1e1e" stroke-width="45" stroke-linecap="round"/>
+    <circle r="76.5" fill="#151515" stroke="#3a3a3a" stroke-width="2"/>
+    <text y="16.2" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-style="italic" font-weight="900" font-size="45" fill="#fff">MST</text>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#fff">
+    <rect x="24" y="842" width="338" height="34" fill="#000" opacity=".55"/>
+    <rect x="24" y="842" width="4" height="34" fill="#E31828"/>
+    <text x="40" y="864" font-size="15" letter-spacing="2" opacity=".85">DEMO IMAGE · INTERIOR DETAILING</text>
+  </g>
+</svg>
