@@ -28,12 +28,12 @@ export type Dictionary = {
 };
 
 const en: Dictionary = {
-  nav: { services: "Services", work: "Our Work", why: "Why MST", contact: "Contact", quote: "Free Quote", menu: "Open menu", close: "Close menu" },
+  nav: { services: "Services", work: "Our Work", why: "Why MST", contact: "Contact", quote: "Free Estimates", menu: "Open menu", close: "Close menu" },
   hero: {
     eyebrow: "Vinyl Wraps · Detailing · PA / NJ",
     title: ["TRANSFORM", "YOUR RIDE."],
     subtitle: "Premium Automotive Wraps & Detailing in PA / NJ.",
-    ctaQuote: "Get a Free Quote",
+    ctaQuote: "Free Estimates",
     ctaWork: "View Our Work",
     scroll: "Scroll",
     tags: ["Color Change", "Chrome Delete", "Roof Wraps", "Detailing"],
@@ -46,7 +46,7 @@ const en: Dictionary = {
     detailLabel: "Auto Detailing",
     wrapIntro: "Change the look of your car without touching the factory paint.",
     detailIntro: "Deep cleaning and finishing, inside and out. Mobile service available.",
-    cta: "Get a quote",
+    cta: "Free estimate",
     colorChange: { title: "Full Color Change Wraps", text: "A complete new color and finish, gloss, satin or matte, applied panel by panel with clean edges and tucked seams." },
     chromeDelete: { title: "Chrome Delete", text: "Window trim, badges, grilles and accents blacked out for a sharper, more aggressive profile." },
     roofWrap: { title: "Roof Wraps", text: "A gloss black or contrast roof that lowers the visual line of the car and sets it apart." },
@@ -83,8 +83,8 @@ const en: Dictionary = {
     ],
   },
   quote: {
-    eyebrow: "Free Quote",
-    title: "Tell us about your car.",
+    eyebrow: "Contact us",
+    title: "Free estimates.",
     intro: "Share a few details and we will get back to you with options and pricing. No obligation.",
     steps: ["Send your request", "We contact you to discuss options", "Schedule your appointment"],
     fields: { name: "Full Name", phone: "Phone Number", email: "Email", make: "Vehicle Make", model: "Vehicle Model", year: "Vehicle Year", service: "Service Interested In", details: "Additional Details", detailsPh: "Color ideas, finish, parts to wrap, timing, questions...", select: "Select a service" },
@@ -108,7 +108,7 @@ const en: Dictionary = {
     text: "Call, text or message us on Instagram. We speak English and Russian.",
     call: "Call Now",
     instagram: "Instagram",
-    quote: "Get a Quote",
+    quote: "Free Estimates",
     location: "Service Area",
     phone: "Phone",
     languages: "Languages",
@@ -119,12 +119,12 @@ const en: Dictionary = {
 };
 
 const ru: Dictionary = {
-  nav: { services: "Услуги", work: "Работы", why: "Почему MST", contact: "Контакты", quote: "Расчёт", menu: "Открыть меню", close: "Закрыть меню" },
+  nav: { services: "Услуги", work: "Работы", why: "Почему MST", contact: "Контакты", quote: "Бесплатная оценка", menu: "Открыть меню", close: "Закрыть меню" },
   hero: {
     eyebrow: "Оклейка винилом · Детейлинг · PA / NJ",
     title: ["ПРЕОБРАЗИ", "СВОЁ АВТО."],
     subtitle: "Премиальная оклейка и детейлинг автомобилей в Пенсильвании и Нью-Джерси.",
-    ctaQuote: "Бесплатный расчёт",
+    ctaQuote: "Бесплатная оценка",
     ctaWork: "Наши работы",
     scroll: "Вниз",
     tags: ["Смена цвета", "Антихром", "Оклейка крыши", "Детейлинг"],
@@ -137,7 +137,7 @@ const ru: Dictionary = {
     detailLabel: "Детейлинг",
     wrapIntro: "Новый облик автомобиля без вмешательства в заводскую краску.",
     detailIntro: "Глубокая чистка и уход снаружи и внутри. Возможен выезд к клиенту.",
-    cta: "Узнать цену",
+    cta: "Бесплатная оценка",
     colorChange: { title: "Полная смена цвета", text: "Новый цвет и фактура — глянец, сатин или мат. Аккуратные кромки и подвороты на каждой детали." },
     chromeDelete: { title: "Антихром", text: "Молдинги, шильдики, решётки и хромированные элементы в чёрном для более агрессивного вида." },
     roofWrap: { title: "Оклейка крыши", text: "Глянцевая чёрная или контрастная крыша визуально делает автомобиль ниже и выразительнее." },
@@ -174,8 +174,8 @@ const ru: Dictionary = {
     ],
   },
   quote: {
-    eyebrow: "Бесплатный расчёт",
-    title: "Расскажите о вашем авто.",
+    eyebrow: "Связаться с нами",
+    title: "Бесплатная оценка.",
     intro: "Оставьте несколько деталей, и мы свяжемся с вами с вариантами и ценами. Без обязательств.",
     steps: ["Отправьте заявку", "Мы свяжемся и обсудим варианты", "Запишем вас на удобное время"],
     fields: { name: "Имя и фамилия", phone: "Телефон", email: "Email", make: "Марка", model: "Модель", year: "Год выпуска", service: "Интересующая услуга", details: "Дополнительно", detailsPh: "Идеи по цвету, фактуре, какие детали оклеить, сроки, вопросы...", select: "Выберите услугу" },
@@ -199,7 +199,7 @@ const ru: Dictionary = {
     text: "Звоните, пишите SMS или в Instagram. Говорим по-английски и по-русски.",
     call: "Позвонить",
     instagram: "Instagram",
-    quote: "Расчёт",
+    quote: "Бесплатная оценка",
     location: "Зона обслуживания",
     phone: "Телефон",
     languages: "Языки",

@@ -10,7 +10,7 @@ const oswald = Oswald({ subsets: ["latin", "cyrillic"], weight: ["500", "600", "
 
 const title = "MST Auto Care | Car Wraps & Detailing in Philadelphia, PA & NJ";
 const description =
-  "Premium vinyl car wraps, chrome delete, roof wraps and auto detailing in Philadelphia, Bucks County and New Jersey. Mobile detailing available. English & Russian spoken. Get a free quote.";
+  "Premium vinyl car wraps, chrome delete, roof wraps and auto detailing in Philadelphia, Bucks County and New Jersey. Mobile detailing available. English & Russian spoken. Free estimates.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
