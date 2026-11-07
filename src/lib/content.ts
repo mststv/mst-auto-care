@@ -60,7 +60,7 @@ const en: Dictionary = {
   gallery: {
     eyebrow: "Our Work",
     title: "Our work.",
-    intro: "Real cars, real results. Recent interior detailing by MST. For our latest work, follow us on Instagram.",
+    intro: "Real cars, real results. For our latest work, follow us on Instagram.",
     workTitle: "Recent projects",
     workIntro: "",
     workTag: "Interior Detailing",
@@ -162,7 +162,7 @@ const ru: Dictionary = {
   gallery: {
     eyebrow: "Наши работы",
     title: "Наши работы.",
-    intro: "Реальные машины, реальный результат. Недавний детейлинг салона от MST. Свежие работы смотрите в Instagram.",
+    intro: "Реальные машины, реальный результат. Свежие работы смотрите в Instagram.",
     workTitle: "Недавние проекты",
     workIntro: "",
     workTag: "Детейлинг салона",
