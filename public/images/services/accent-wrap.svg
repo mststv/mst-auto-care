@@ -32,7 +32,7 @@
       
       <rect x="180" y="610" width="1260" height="40" fill="#000" opacity=".45"/>
     </g>
-    <path d="M584,452 C660,396 734,370 822,366 C888,364 936,376 972,402 L1000,428 C1004,434 1000,440 992,441 L620,456 C596,457 584,456 584,452 Z" fill="url(#glass)" stroke="#090909" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M584,452 C660,396 734,370 822,366 C888,364 936,376 972,402 L1000,428 C1004,434 1000,440 992,441 L620,456 C596,457 584,456 584,452 Z" fill="url(#glass)" stroke="#090909" stroke-width="7" stroke-linejoin="round"/>
     <path d="M840,367 L828,452" stroke="#090909" stroke-width="9"/>
     <path d="M1180,470 L1260,476" stroke="#090909" stroke-width="5" stroke-linecap="round"/>
     <path d="M1360,494 C1380,498 1392,506 1398,516 L1372,520 C1362,510 1356,502 1360,494 Z" fill="#f2f2f2" opacity=".85"/>
@@ -52,6 +52,7 @@
     <path d="M1136,610 A54,54 0 0 1 1210,594" stroke="#E31828" stroke-width="6" fill="none" opacity=".9"/>
   </g>
     <g opacity=".14" transform="translate(0,1460) scale(1,-1)"><path d="M210,640 C198,602 204,562 226,540 L302,506 C382,472 470,456 560,450 C640,382 722,346 822,340 C902,337 962,350 1012,386 C1062,420 1122,440 1202,452 C1292,466 1362,482 1396,506 C1416,522 1421,572 1406,610 L1392,640 L1278,640 A98,98 0 0 0 1082,640 L478,640 A98,98 0 0 0 282,640 Z" fill="url(#paint)"/></g>
+
   </g>
   <g font-family="Arial, Helvetica, sans-serif" fill="#fff">
     <rect x="24" y="842" width="260" height="34" fill="#000" opacity=".55"/>

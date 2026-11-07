@@ -14,6 +14,7 @@ export type Dictionary = {
   gallery: {
     eyebrow: string; title: string; intro: string; before: string; after: string; drag: string; demoNote: string;
     items: Record<string, { title: string; tag: string }>;
+    vehicle: string; project: string;
     instagram: string;
   };
   why: { eyebrow: string; title: string; items: { title: string; text: string }[] };
@@ -58,17 +59,19 @@ const en: Dictionary = {
   gallery: {
     eyebrow: "Our Work",
     title: "Before & After.",
-    intro: "Drag the slider to compare. Our real project photos are coming soon. For our latest work, follow us on Instagram.",
+    intro: "Drag the slider to compare. Pick a project below to switch. For our latest work, follow us on Instagram.",
     before: "Before",
     after: "After",
     drag: "Drag to compare before and after",
     demoNote: "Demo images. Real MST projects coming soon.",
     items: {
-      p1: { title: "Satin Black Color Change", tag: "Full Wrap" },
-      p2: { title: "Matte Grey Transformation", tag: "Full Wrap + Chrome Delete" },
-      p3: { title: "Gloss Black Roof & Trim", tag: "Roof Wrap" },
-      p4: { title: "Paint Refresh", tag: "Full Detailing" },
+      p1: { title: "Alpine White to Satin Black", tag: "Full Color Change" },
+      p2: { title: "Blue to Matte Grey", tag: "Color Change + Chrome Delete" },
+      p3: { title: "Gloss Black Roof", tag: "Roof Wrap + Chrome Delete" },
+      p4: { title: "Deep Gloss Restore", tag: "Full Auto Detailing" },
     },
+    vehicle: "BMW M5 F90 · 2019",
+    project: "Project",
     instagram: "See more on Instagram",
   },
   why: {
@@ -149,17 +152,19 @@ const ru: Dictionary = {
   gallery: {
     eyebrow: "Наши работы",
     title: "До и после.",
-    intro: "Перетащите ползунок, чтобы сравнить. Фото наших реальных проектов скоро появятся. Свежие работы смотрите в Instagram.",
+    intro: "Перетащите ползунок, чтобы сравнить. Выберите проект ниже, чтобы переключить. Свежие работы смотрите в Instagram.",
     before: "До",
     after: "После",
     drag: "Перетащите, чтобы сравнить до и после",
     demoNote: "Демо-изображения. Реальные проекты MST скоро.",
     items: {
-      p1: { title: "Сатиновый чёрный", tag: "Полная оклейка" },
-      p2: { title: "Матовый серый", tag: "Полная оклейка + антихром" },
-      p3: { title: "Чёрная крыша и отделка", tag: "Оклейка крыши" },
-      p4: { title: "Обновление вида", tag: "Комплексный детейлинг" },
+      p1: { title: "Белый в сатиновый чёрный", tag: "Полная смена цвета" },
+      p2: { title: "Синий в матовый серый", tag: "Смена цвета + антихром" },
+      p3: { title: "Глянцевая чёрная крыша", tag: "Оклейка крыши + антихром" },
+      p4: { title: "Глубокий глянец", tag: "Комплексный детейлинг" },
     },
+    vehicle: "BMW M5 F90 · 2019",
+    project: "Проект",
     instagram: "Больше в Instagram",
   },
   why: {

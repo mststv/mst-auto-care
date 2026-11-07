@@ -12,10 +12,11 @@ type Props = {
   alt: string;
   dragLabel: string;
   sizes?: string;
+  aspect?: string;
 };
 
 /** Accessible before/after comparison slider (mouse, touch and keyboard). */
-export function BeforeAfter({ before, after, beforeLabel, afterLabel, alt, dragLabel, sizes = "(min-width:768px) 50vw, 100vw" }: Props) {
+export function BeforeAfter({ before, after, beforeLabel, afterLabel, alt, dragLabel, sizes = "(min-width:768px) 50vw, 100vw", aspect = "aspect-[16/10]" }: Props) {
   const [pos, setPos] = useState(50);
   const [dragging, setDragging] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -52,7 +53,7 @@ export function BeforeAfter({ before, after, beforeLabel, afterLabel, alt, dragL
       onPointerMove={onMove}
       onPointerUp={onUp}
       onPointerCancel={onUp}
-      className={`group relative aspect-[16/10] w-full touch-pan-y select-none overflow-hidden bg-ink-2 ${dragging ? "cursor-grabbing" : "cursor-ew-resize"}`}
+      className={`group relative ${aspect} w-full touch-pan-y select-none overflow-hidden bg-ink-2 ${dragging ? "cursor-grabbing" : "cursor-ew-resize"}`}
     >
       {/* After (base layer) */}
       <SiteImage src={after} alt={`${alt}: ${afterLabel}`} fill sizes={sizes} className="pointer-events-none object-cover" draggable={false} />

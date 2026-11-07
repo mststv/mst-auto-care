@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Info } from "lucide-react";
 import { BeforeAfter } from "./BeforeAfter";
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
 import { ButtonLink } from "./Button";
 import { InstagramIcon } from "./InstagramIcon";
+import { SiteImage } from "./SiteImage";
 import { images, isPlaceholder } from "@/lib/images";
 import { useLocale } from "@/lib/i18n";
 import { site } from "@/lib/site";
@@ -13,7 +16,12 @@ import { site } from "@/lib/site";
 export function Gallery() {
   const { t } = useLocale();
   const g = t.gallery;
-  const showDemoNote = images.gallery.some((p) => isPlaceholder(p.before) || isPlaceholder(p.after));
+  const [active, setActive] = useState(0);
+  const projects = images.gallery;
+  const current = projects[active];
+  const meta = (key: string, i: number) => g.items[key] ?? { title: `${g.project} ${i + 1}`, tag: "" };
+  const cur = meta(current.key, active);
+  const showDemoNote = projects.some((p) => isPlaceholder(p.before) || isPlaceholder(p.after));
 
   return (
     <section id="work" aria-labelledby="work-title" className="relative border-t border-line bg-ink-2 py-24 md:py-36">
@@ -28,33 +36,86 @@ export function Gallery() {
           </Reveal>
         </div>
 
-        {showDemoNote && (
-          <p className="mt-10 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/40">
-            <Info className="size-4 text-red" aria-hidden /> {g.demoNote}
-          </p>
-        )}
+        <Reveal className="mt-14">
+          {/* Featured comparison */}
+          <figure className="relative">
+            <div className="relative border border-line shadow-[0_40px_120px_-40px_rgba(227,24,40,0.35)]">
+              <AnimatePresence mode="wait">
+                <motion.div key={current.key} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>
+                  <BeforeAfter
+                    before={current.before}
+                    after={current.after}
+                    beforeLabel={g.before}
+                    afterLabel={g.after}
+                    alt={`${g.vehicle}, ${cur.title}`}
+                    dragLabel={g.drag}
+                    sizes="(min-width:1408px) 1328px, 100vw"
+                    aspect="aspect-[16/10] sm:aspect-[16/9]"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            <figcaption className="mt-6 grid gap-4 border-b border-line pb-6 md:grid-cols-[1fr_auto] md:items-end">
+              <div>
+                <p className="font-display text-xs uppercase tracking-[0.3em] text-red">{g.vehicle}</p>
+                <AnimatePresence mode="wait">
+                  <motion.h3
+                    key={cur.title}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="mt-2 font-display text-3xl font-bold uppercase leading-none tracking-tight md:text-5xl"
+                  >
+                    {cur.title}
+                  </motion.h3>
+                </AnimatePresence>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="font-display text-xs uppercase tracking-[0.25em] text-white/50">{cur.tag}</span>
+                <span className="font-display text-sm tabular-nums text-white/40">
+                  <span className="text-white">{String(active + 1).padStart(2, "0")}</span> / {String(projects.length).padStart(2, "0")}
+                </span>
+              </div>
+            </figcaption>
+          </figure>
 
-        <div className="mt-6 grid gap-x-6 gap-y-12 md:grid-cols-2">
-          {images.gallery.map((p, i) => {
-            const meta = g.items[p.key] ?? { title: `Project ${i + 1}`, tag: "" };
-            return (
-              <Reveal key={p.key} delay={(i % 2) * 0.1} className={i % 2 === 1 ? "md:mt-20" : ""}>
-                <figure>
-                  <div className="border border-line">
-                    <BeforeAfter before={p.before} after={p.after} beforeLabel={g.before} afterLabel={g.after} alt={meta.title} dragLabel={g.drag} />
+          {/* Project selector */}
+          <div role="tablist" aria-label={g.title} className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+            {projects.map((p, i) => {
+              const m = meta(p.key, i);
+              const on = i === active;
+              return (
+                <button
+                  key={p.key}
+                  type="button"
+                  role="tab"
+                  aria-selected={on}
+                  onClick={() => setActive(i)}
+                  className={`group relative overflow-hidden border text-left transition-all duration-300 ${on ? "border-red" : "border-line hover:border-white/30"}`}
+                >
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <SiteImage src={p.after} alt="" fill sizes="(min-width:768px) 25vw, 50vw" className={`object-cover transition-all duration-700 ease-out-expo group-hover:scale-105 ${on ? "opacity-100" : "opacity-50 group-hover:opacity-80"}`} />
                   </div>
-                  <figcaption className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                    <span className="flex items-baseline gap-4">
-                      <span className="font-display text-sm text-red">0{i + 1}</span>
-                      <span className="font-display text-xl font-bold uppercase tracking-tight md:text-2xl">{meta.title}</span>
+                  <div className="flex items-baseline gap-3 p-3 md:p-4">
+                    <span className={`font-display text-xs ${on ? "text-red" : "text-white/40"}`}>0{i + 1}</span>
+                    <span className="min-w-0">
+                      <span className="block font-display text-sm font-semibold uppercase leading-tight tracking-wide md:truncate md:text-base">{m.title}</span>
+                      <span className="mt-0.5 hidden truncate text-xs text-white/45 sm:block">{m.tag}</span>
                     </span>
-                    <span className="font-display text-[0.7rem] uppercase tracking-[0.25em] text-white/45 sm:shrink-0 sm:text-right">{meta.tag}</span>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            );
-          })}
-        </div>
+                  </div>
+                  <span aria-hidden className={`absolute inset-x-0 top-0 h-0.5 bg-red transition-transform duration-500 ease-out-expo ${on ? "scale-x-100" : "scale-x-0"}`} />
+                </button>
+              );
+            })}
+          </div>
+
+          {showDemoNote && (
+            <p className="mt-8 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/40">
+              <Info className="size-4 shrink-0 text-red" aria-hidden /> {g.demoNote}
+            </p>
+          )}
+        </Reveal>
       </div>
     </section>
   );
