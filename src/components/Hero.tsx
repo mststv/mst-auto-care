@@ -50,7 +50,7 @@ export function Hero() {
           <motion.span {...item(1)} className="block text-[clamp(3.6rem,13vw,11rem)]">
             {t.hero.title[0]}
           </motion.span>
-          <motion.span {...item(2)} className="mt-[0.06em] block text-[clamp(3.6rem,13vw,11rem)] text-transparent [-webkit-text-stroke:1.5px_#fff] md:[-webkit-text-stroke:2px_#fff]">
+          <motion.span {...item(2)} className="mt-[0.12em] block text-[clamp(3.6rem,13vw,11rem)] text-transparent [-webkit-text-stroke:1.5px_#fff] md:[-webkit-text-stroke:2px_#fff]">
             {t.hero.title[1].replace(/\.$/, "")}
             <span className="text-red [-webkit-text-stroke:0]">.</span>
           </motion.span>
