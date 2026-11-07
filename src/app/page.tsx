@@ -1,6 +1,5 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Marquee } from "@/components/Marquee";
 import { Services } from "@/components/Services";
 import { Gallery } from "@/components/Gallery";
 import { WhyUs } from "@/components/WhyUs";
@@ -14,7 +13,6 @@ export default function Home() {
       <Header />
       <main id="main">
         <Hero />
-        <Marquee />
         <Services />
         <Gallery />
         <WhyUs />

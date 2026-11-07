@@ -32,10 +32,9 @@ export function Services() {
         {/* Primary: wraps */}
         <div className="mt-16 flex flex-col justify-between gap-4 border-b border-line pb-5 md:mt-24 md:flex-row md:items-end">
           <h3 className="flex items-baseline gap-4 font-display text-2xl font-bold uppercase tracking-tight md:text-3xl">
-            <span className="text-red">01</span> {s.wrapLabel}
+            {s.wrapLabel}
           </h3>
-          <p className="max-w-sm text-sm text-white/50">{s.wrapIntro}</p>
-        </div>
+                  </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-12">
           {wraps.map((w, i) => (
@@ -43,7 +42,7 @@ export function Services() {
               <a
                 href="#quote"
                 className={`group relative flex h-full flex-col justify-end overflow-hidden border border-line bg-ink-2 ${
-                  w.featured ? "min-h-[26rem] md:min-h-[34rem] lg:min-h-full" : i === 3 ? "min-h-[20rem] md:min-h-[22rem]" : "min-h-[20rem]"
+                  w.featured ? "min-h-[18rem] md:min-h-[34rem] lg:min-h-full" : i === 3 ? "min-h-[15rem] md:min-h-[22rem]" : "min-h-[15rem] md:min-h-[20rem]"
                 }`}
               >
                 <SiteImage
@@ -57,8 +56,7 @@ export function Services() {
                 <div aria-hidden className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-red transition-transform duration-700 ease-out-expo group-hover:scale-x-100" />
                 <div className="relative flex items-end justify-between gap-6 p-6 md:p-8">
                   <div>
-                    <span className="font-display text-xs tracking-[0.3em] text-red">0{i + 1}</span>
-                    <h4 className={`mt-2 font-display font-bold uppercase leading-none tracking-tight ${w.featured ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"}`}>{w.title}</h4>
+                                        <h4 className={`mt-2 font-display font-bold uppercase leading-none tracking-tight ${w.featured ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"}`}>{w.title}</h4>
                     <p className="mt-3 max-w-md text-sm leading-relaxed text-white/65">{w.text}</p>
                   </div>
                   <span className="grid size-12 shrink-0 place-items-center border border-white/20 transition-all duration-300 group-hover:border-red group-hover:bg-red" aria-hidden>
@@ -74,16 +72,15 @@ export function Services() {
         {/* Secondary: detailing */}
         <div className="mt-20 flex flex-col justify-between gap-4 border-b border-line pb-5 md:mt-28 md:flex-row md:items-end">
           <h3 className="flex items-baseline gap-4 font-display text-2xl font-bold uppercase tracking-tight md:text-3xl">
-            <span className="text-red">02</span> {s.detailLabel}
+            {s.detailLabel}
           </h3>
-          <p className="max-w-sm text-sm text-white/50">{s.detailIntro}</p>
-        </div>
+                  </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {detailing.map((d, i) => (
             <Reveal key={d.title} delay={i * 0.08}>
               <a href="#quote" className="group relative flex h-full flex-col overflow-hidden border border-line bg-ink-2 transition-colors duration-500 hover:border-white/20">
-                <div className="relative aspect-[16/9] overflow-hidden">
+                <div className="relative hidden aspect-[16/9] overflow-hidden md:block">
                   <SiteImage src={d.img} alt="" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover opacity-70 transition-all duration-[1.2s] ease-out-expo group-hover:scale-105 group-hover:opacity-90" />
                   <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink-2 to-transparent" />
                 </div>

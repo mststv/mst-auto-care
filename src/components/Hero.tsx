@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
+import { site } from "@/lib/site";
 import { useRef } from "react";
 import { SiteImage } from "./SiteImage";
 import { ButtonLink } from "./Button";
@@ -41,11 +42,6 @@ export function Hero() {
       </div>
 
       <motion.div style={{ opacity: fade }} className="container-x relative pb-24 pt-36 md:pb-32">
-        <motion.p {...item(0)} className="flex items-center gap-3 font-display text-[0.65rem] font-medium uppercase tracking-[0.25em] text-white/70 sm:text-xs sm:tracking-[0.35em]">
-          <span aria-hidden className="h-px w-10 bg-red" />
-          {t.hero.eyebrow}
-        </motion.p>
-
         <h1 id="hero-title" className="mt-7 font-display font-bold uppercase leading-[0.88] tracking-[-0.02em]">
           <motion.span {...item(1)} className="block text-[clamp(3.6rem,13vw,11rem)]">
             {t.hero.title[0]}
@@ -65,27 +61,13 @@ export function Hero() {
             {t.hero.ctaQuote}
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
           </ButtonLink>
-          <ButtonLink href="#work" variant="outline">
-            {t.hero.ctaWork}
+          <ButtonLink href={site.phoneHref} variant="outline">
+            <Phone className="size-4" aria-hidden /> {t.hero.ctaCall} {site.phoneDisplay}
           </ButtonLink>
         </motion.div>
 
-        <motion.ul {...item(5)} className="mt-14 hidden flex-wrap gap-x-8 gap-y-2 border-t border-line pt-6 font-display text-xs uppercase tracking-[0.28em] text-white/50 md:flex">
-          {t.hero.tags.map((tag) => (
-            <li key={tag} className="flex items-center gap-3">
-              <span aria-hidden className="size-1 rotate-45 bg-red" />
-              {tag}
-            </li>
-          ))}
-        </motion.ul>
       </motion.div>
 
-      <a href="#services" className="absolute bottom-8 right-6 hidden flex-col items-center gap-3 md:flex md:right-10" aria-label={t.hero.scroll}>
-        <span className="font-display text-[0.65rem] uppercase tracking-[0.35em] text-white/50 [writing-mode:vertical-rl]">{t.hero.scroll}</span>
-        <span className="relative h-16 w-px overflow-hidden bg-white/15">
-          <span className="absolute inset-0 bg-red animate-[scroll-line_2.2s_ease-in-out_infinite]" />
-        </span>
-      </a>
     </section>
   );
 }
