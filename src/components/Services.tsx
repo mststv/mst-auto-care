@@ -1,101 +1,131 @@
 "use client";
 
-import { ArrowUpRight, Droplets, Sofa, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, Droplets, Layers, Paintbrush, Sofa, Sparkles, SquareDashed, CarFront } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
-import { Reveal } from "./Reveal";
 import { SiteImage } from "./SiteImage";
 import { images } from "@/lib/images";
+import { startingPrices } from "@/lib/prices";
 import { useLocale } from "@/lib/i18n";
 
+type Key = keyof typeof startingPrices;
+type Item = { key: Key; Icon: LucideIcon };
+
+const categories: { id: "wraps" | "detailing"; img: string; items: Item[] }[] = [
+  {
+    id: "wraps",
+    img: images.services.colorChange,
+    items: [
+      { key: "colorChange", Icon: Paintbrush },
+      { key: "chromeDelete", Icon: SquareDashed },
+      { key: "roofWrap", Icon: CarFront },
+      { key: "accentWrap", Icon: Layers },
+    ],
+  },
+  {
+    id: "detailing",
+    img: images.services.interiorDetailing,
+    items: [
+      { key: "interior", Icon: Sofa },
+      { key: "exterior", Icon: Droplets },
+      { key: "full", Icon: Sparkles },
+    ],
+  },
+];
+
 export function Services() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const s = t.services;
-
-  const wraps: { title: string; text: string; img: string; featured?: boolean }[] = [
-    { ...s.colorChange, img: images.services.colorChange, featured: true },
-    { ...s.chromeDelete, img: images.services.chromeDelete },
-    { ...s.roofWrap, img: images.services.roofWrap },
-    { ...s.accentWrap, img: images.services.accentWrap },
-  ];
-
-  const detailing = [
-    { ...s.interior, img: images.services.interiorDetailing, Icon: Sofa },
-    { ...s.exterior, img: images.services.exteriorDetailing, Icon: Droplets },
-    { ...s.full, img: images.services.fullDetailing, Icon: Sparkles },
-  ];
+  const [active, setActive] = useState<"wraps" | "detailing">("wraps");
+  const cat = categories.find((c) => c.id === active)!;
+  const label = (id: string) => (id === "wraps" ? s.wrapLabel : s.detailLabel);
+  const intro = (id: string) => (id === "wraps" ? s.wrapIntro : s.detailIntro);
+  const fmt = (n: number) => new Intl.NumberFormat(locale === "ru" ? "ru-RU" : "en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
 
   return (
-    <section id="services" aria-labelledby="services-title" className="relative py-24 md:py-36">
+    <section id="services" aria-labelledby="services-title" className="relative py-24 md:py-32">
       <div className="container-x">
         <SectionHeading id="services-title" eyebrow={s.eyebrow} title={s.title} intro={s.intro} />
 
-        {/* Primary: wraps */}
-        <div className="mt-16 flex flex-col justify-between gap-4 border-b border-line pb-5 md:mt-24 md:flex-row md:items-end">
-          <h3 className="flex items-baseline gap-4 font-display text-2xl font-bold uppercase tracking-tight md:text-3xl">
-            {s.wrapLabel}
-          </h3>
-                  </div>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-12">
-          {wraps.map((w, i) => (
-            <Reveal key={w.title} delay={i * 0.08} className={w.featured ? "md:col-span-2 lg:col-span-7 lg:row-span-2" : i === 1 ? "lg:col-span-5" : i === 2 ? "lg:col-span-5" : "md:col-span-2 lg:col-span-12"}>
-              <a
-                href="#quote"
-                className={`group relative flex h-full flex-col justify-end overflow-hidden border border-line bg-ink-2 ${
-                  w.featured ? "min-h-[18rem] md:min-h-[34rem] lg:min-h-full" : i === 3 ? "min-h-[15rem] md:min-h-[22rem]" : "min-h-[15rem] md:min-h-[20rem]"
-                }`}
+        {/* Category picker */}
+        <div role="tablist" aria-label={s.pick} className="mt-12 grid gap-3 sm:grid-cols-2 md:mt-16 md:gap-4">
+          {categories.map((c) => {
+            const on = c.id === active;
+            return (
+              <button
+                key={c.id}
+                type="button"
+                role="tab"
+                id={`tab-${c.id}`}
+                aria-selected={on}
+                aria-controls={`panel-${c.id}`}
+                onClick={() => setActive(c.id)}
+                className={`group relative flex min-h-[9rem] items-end overflow-hidden border text-left transition-colors duration-300 md:min-h-[14rem] ${on ? "border-red" : "border-line hover:border-white/30"}`}
               >
-                <SiteImage
-                  src={w.img}
-                  alt=""
-                  fill
-                  sizes={w.featured ? "(min-width:1024px) 58vw, 100vw" : "(min-width:1024px) 42vw, 100vw"}
-                  className="object-cover opacity-80 transition-all duration-[1.2s] ease-out-expo group-hover:scale-105 group-hover:opacity-100"
-                />
-                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
-                <div aria-hidden className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-red transition-transform duration-700 ease-out-expo group-hover:scale-x-100" />
-                <div className="relative flex items-end justify-between gap-6 p-6 md:p-8">
-                  <div>
-                                        <h4 className={`mt-2 font-display font-bold uppercase leading-none tracking-tight ${w.featured ? "text-3xl md:text-5xl" : "text-2xl md:text-3xl"}`}>{w.title}</h4>
-                    <p className="mt-3 max-w-md text-sm leading-relaxed text-white/65">{w.text}</p>
-                  </div>
-                  <span className="grid size-12 shrink-0 place-items-center border border-white/20 transition-all duration-300 group-hover:border-red group-hover:bg-red" aria-hidden>
-                    <ArrowUpRight className="size-5 transition-transform duration-300 group-hover:rotate-45" />
+                <SiteImage src={c.img} alt="" fill sizes="(min-width:640px) 50vw, 100vw" className={`object-cover transition-all duration-700 ease-out-expo group-hover:scale-105 ${on ? "opacity-70" : "opacity-35 group-hover:opacity-55"}`} />
+                <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
+                <span className="relative flex w-full items-end justify-between gap-4 p-5 md:p-7">
+                  <span>
+                    <span className="block font-display text-2xl font-bold uppercase leading-none tracking-tight md:text-4xl">{label(c.id)}</span>
+                    <span className="mt-2 block text-sm text-white/65">{intro(c.id)}</span>
                   </span>
-                </div>
-                <span className="sr-only">{s.cta}</span>
-              </a>
-            </Reveal>
-          ))}
+                  <span className="shrink-0 font-display text-xs uppercase tracking-[0.2em] text-white/60">
+                    {c.items.length} {s.count}
+                  </span>
+                </span>
+                <span aria-hidden className={`absolute inset-x-0 top-0 h-1 bg-red transition-transform duration-500 ease-out-expo ${on ? "scale-x-100" : "scale-x-0"}`} />
+              </button>
+            );
+          })}
         </div>
 
-        {/* Secondary: detailing */}
-        <div className="mt-20 flex flex-col justify-between gap-4 border-b border-line pb-5 md:mt-28 md:flex-row md:items-end">
-          <h3 className="flex items-baseline gap-4 font-display text-2xl font-bold uppercase tracking-tight md:text-3xl">
-            {s.detailLabel}
-          </h3>
-                  </div>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {detailing.map((d, i) => (
-            <Reveal key={d.title} delay={i * 0.08}>
-              <a href="#quote" className="group relative flex h-full flex-col overflow-hidden border border-line bg-ink-2 transition-colors duration-500 hover:border-white/20">
-                <div className="relative hidden aspect-[16/9] overflow-hidden md:block">
-                  <SiteImage src={d.img} alt="" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover opacity-70 transition-all duration-[1.2s] ease-out-expo group-hover:scale-105 group-hover:opacity-90" />
-                  <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink-2 to-transparent" />
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <d.Icon className="size-5 text-red" aria-hidden />
-                  <h4 className="mt-4 font-display text-xl font-bold uppercase tracking-tight">{d.title}</h4>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-white/55">{d.text}</p>
-                  <span className="mt-6 inline-flex items-center gap-2 font-display text-xs uppercase tracking-[0.25em] text-white/60 transition-colors group-hover:text-white">
-                    {s.cta} <ArrowUpRight className="size-4 text-red" aria-hidden />
-                  </span>
-                </div>
-              </a>
-            </Reveal>
-          ))}
-        </div>
+        {/* Services in the chosen category */}
+        <AnimatePresence mode="wait">
+          <motion.ul
+            key={active}
+            id={`panel-${active}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${active}`}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-4 divide-y divide-line border border-line bg-ink-2"
+          >
+            {cat.items.map(({ key, Icon }) => {
+              const copy = s[key];
+              const price = startingPrices[key];
+              return (
+                <li key={key}>
+                  <a href="#quote" className="group grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-3 p-5 transition-colors hover:bg-white/[0.03] md:grid-cols-[auto_1fr_auto_auto] md:gap-x-8 md:p-7">
+                    <span className="grid size-11 place-items-center border border-white/15 text-red transition-colors group-hover:border-red">
+                      <Icon className="size-5" aria-hidden />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block font-display text-xl font-bold uppercase tracking-tight md:text-2xl">{copy.title}</span>
+                      <span className="mt-1 block text-sm text-white/55">{copy.text}</span>
+                    </span>
+                    <span className="col-start-2 md:col-start-auto md:text-right">
+                      {price !== null ? (
+                        <>
+                          <span className="block font-display text-[0.65rem] uppercase tracking-[0.25em] text-white/45">{s.from}</span>
+                          <span className="block font-display text-2xl font-bold text-white md:text-3xl">{fmt(price)}</span>
+                        </>
+                      ) : (
+                        <span className="font-display text-sm uppercase tracking-[0.15em] text-white/60">{s.onRequest}</span>
+                      )}
+                    </span>
+                    <span className="col-start-2 inline-flex items-center gap-2 font-display text-xs uppercase tracking-[0.2em] text-red md:col-start-auto">
+                      {s.cta} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </motion.ul>
+        </AnimatePresence>
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ export type Dictionary = {
   nav: { services: string; work: string; why: string; contact: string; quote: string; menu: string; close: string };
   hero: { eyebrow: string; title: [string, string]; subtitle: string; ctaQuote: string; ctaWork: string; ctaCall: string; scroll: string; tags: string[] };
   services: {
-    eyebrow: string; title: string; intro: string; wrapLabel: string; detailLabel: string; wrapIntro: string; detailIntro: string; cta: string;
+    eyebrow: string; title: string; intro: string; wrapLabel: string; detailLabel: string; wrapIntro: string; detailIntro: string; cta: string; from: string; onRequest: string; pick: string; count: string;
     colorChange: ServiceCopy; chromeDelete: ServiceCopy; roofWrap: ServiceCopy; accentWrap: ServiceCopy;
     interior: ServiceCopy; exterior: ServiceCopy; full: ServiceCopy;
   };
@@ -47,9 +47,13 @@ const en: Dictionary = {
     intro: "Vinyl wraps and auto detailing. Mobile detailing available.",
     wrapLabel: "Vinyl Wraps",
     detailLabel: "Auto Detailing",
-    wrapIntro: "Change the look of your car without touching the factory paint.",
-    detailIntro: "Deep cleaning and finishing, inside and out. Mobile service available.",
+    wrapIntro: "New color, chrome delete, roof and accents.",
+    detailIntro: "Interior, exterior or full. We can come to you.",
     cta: "Free estimate",
+    from: "Starting at",
+    onRequest: "Price on request",
+    pick: "Choose a category",
+    count: "services",
     colorChange: { title: "Full Color Change Wraps", text: "Change your car's color: gloss, satin or matte. Your factory paint stays protected underneath." },
     chromeDelete: { title: "Chrome Delete", text: "Chrome trim, badges and grilles turned black." },
     roofWrap: { title: "Roof Wraps", text: "Gloss black or any color roof." },
@@ -150,9 +154,13 @@ const ru: Dictionary = {
     intro: "Оклейка винилом и детейлинг. Возможен выезд к клиенту.",
     wrapLabel: "Оклейка винилом",
     detailLabel: "Детейлинг",
-    wrapIntro: "Новый облик автомобиля без вмешательства в заводскую краску.",
-    detailIntro: "Глубокая чистка и уход снаружи и внутри. Возможен выезд к клиенту.",
+    wrapIntro: "Новый цвет, антихром, крыша и акценты.",
+    detailIntro: "Салон, кузов или всё вместе. Можем приехать к вам.",
     cta: "Бесплатная оценка",
+    from: "От",
+    onRequest: "Цена по запросу",
+    pick: "Выберите категорию",
+    count: "услуги",
     colorChange: { title: "Полная смена цвета", text: "Новый цвет авто: глянец, сатин или мат. Заводская краска под плёнкой защищена." },
     chromeDelete: { title: "Антихром", text: "Хром на молдингах, шильдиках и решётке в чёрный." },
     roofWrap: { title: "Оклейка крыши", text: "Глянцевая чёрная или крыша любого цвета." },
