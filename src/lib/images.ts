@@ -11,10 +11,25 @@ export const images = {
     chromeDelete: "/images/services/chrome-delete.svg",
     roofWrap: "/images/services/roof-wrap.svg",
     accentWrap: "/images/services/accent-wrap.svg",
-    interiorDetailing: "/images/services/interior-detailing.svg",
+    interiorDetailing: "/images/work/bmw-steering-wheel.jpg",
     exteriorDetailing: "/images/services/exterior-detailing.svg",
-    fullDetailing: "/images/services/full-detailing.svg",
+    fullDetailing: "/images/work/mercedes-cls-interior.jpg",
   },
+  /**
+   * Real MST project photos ("Our Work" grid). Add new photos to /public/images/work and list them here.
+   * `vehicle` is shown as the caption (`vehicleRu` optional Russian version); `w`/`h` are the image's pixel size.
+   */
+  work: [
+    { src: "/images/work/bmw-steering-wheel.jpg", vehicle: "BMW", w: 1282, h: 1400 },
+    { src: "/images/work/mercedes-steering-wheel.jpg", vehicle: "Mercedes-Benz", w: 1320, h: 1285 },
+    { src: "/images/work/mercedes-cls-interior.jpg", vehicle: "Mercedes-Benz CLS", w: 862, h: 1400 },
+    { src: "/images/work/bmw-front-seat.jpg", vehicle: "BMW", w: 1202, h: 1400 },
+    { src: "/images/work/jeep-interior.jpg", vehicle: "Jeep", w: 950, h: 1400 },
+    { src: "/images/work/light-leather-seat.jpg", vehicle: "Leather seat", vehicleRu: "Кожаное сиденье", w: 1283, h: 1400 },
+    { src: "/images/work/audi-q7-dashboard.jpg", vehicle: "Audi Q7", w: 1109, h: 1400 },
+    { src: "/images/work/black-leather-seats.jpg", vehicle: "Leather seats", vehicleRu: "Кожаные сиденья", w: 924, h: 1400 },
+    { src: "/images/work/truck-cab.jpg", vehicle: "Truck cab", vehicleRu: "Кабина грузовика", w: 928, h: 1400 },
+  ],
   /** Before / after pairs. Add or remove entries freely; the gallery adapts. */
   gallery: [
     { before: "/images/gallery/project-1-before.svg", after: "/images/gallery/project-1-after.svg", key: "p1" },

@@ -15,6 +15,7 @@ export type Dictionary = {
     eyebrow: string; title: string; intro: string; before: string; after: string; drag: string; demoNote: string;
     items: Record<string, { title: string; tag: string }>;
     vehicle: string; project: string;
+    workTitle: string; workIntro: string; workTag: string; baTitle: string; baIntro: string; close: string; prev: string; next: string; open: string;
     instagram: string;
   };
   why: { eyebrow: string; title: string; items: { title: string; text: string }[] };
@@ -58,12 +59,21 @@ const en: Dictionary = {
   },
   gallery: {
     eyebrow: "Our Work",
-    title: "Before & After.",
-    intro: "Drag the slider to compare. Pick a project below to switch. For our latest work, follow us on Instagram.",
+    title: "Our work.",
+    intro: "Real cars, real results. Recent interior detailing by MST. For our latest work, follow us on Instagram.",
+    workTitle: "Recent projects",
+    workIntro: "",
+    workTag: "Interior Detailing",
+    baTitle: "Before & After",
+    baIntro: "Drag the slider to compare. Pick a project to switch.",
+    close: "Close",
+    prev: "Previous photo",
+    next: "Next photo",
+    open: "Open photo",
     before: "Before",
     after: "After",
     drag: "Drag to compare before and after",
-    demoNote: "Demo images. Real MST projects coming soon.",
+    demoNote: "Before & after: demo illustrations until real photo pairs are added.",
     items: {
       p1: { title: "Alpine White to Satin Black", tag: "Full Color Change" },
       p2: { title: "Blue to Matte Grey", tag: "Color Change + Chrome Delete" },
@@ -151,12 +161,21 @@ const ru: Dictionary = {
   },
   gallery: {
     eyebrow: "Наши работы",
-    title: "До и после.",
-    intro: "Перетащите ползунок, чтобы сравнить. Выберите проект ниже, чтобы переключить. Свежие работы смотрите в Instagram.",
+    title: "Наши работы.",
+    intro: "Реальные машины, реальный результат. Недавний детейлинг салона от MST. Свежие работы смотрите в Instagram.",
+    workTitle: "Недавние проекты",
+    workIntro: "",
+    workTag: "Детейлинг салона",
+    baTitle: "До и после",
+    baIntro: "Перетащите ползунок, чтобы сравнить. Выберите проект, чтобы переключить.",
+    close: "Закрыть",
+    prev: "Предыдущее фото",
+    next: "Следующее фото",
+    open: "Открыть фото",
     before: "До",
     after: "После",
     drag: "Перетащите, чтобы сравнить до и после",
-    demoNote: "Демо-изображения. Реальные проекты MST скоро.",
+    demoNote: "До и после: демо-иллюстрации, пока не добавлены реальные пары фото.",
     items: {
       p1: { title: "Белый в сатиновый чёрный", tag: "Полная смена цвета" },
       p2: { title: "Синий в матовый серый", tag: "Смена цвета + антихром" },

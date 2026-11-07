@@ -9,6 +9,7 @@ import { Reveal } from "./Reveal";
 import { ButtonLink } from "./Button";
 import { InstagramIcon } from "./InstagramIcon";
 import { SiteImage } from "./SiteImage";
+import { WorkGrid } from "./WorkGrid";
 import { images, isPlaceholder } from "@/lib/images";
 import { useLocale } from "@/lib/i18n";
 import { site } from "@/lib/site";
@@ -36,7 +37,16 @@ export function Gallery() {
           </Reveal>
         </div>
 
-        <Reveal className="mt-14">
+        <div className="mt-14">
+          <WorkGrid />
+        </div>
+
+        <div className="mt-24 flex flex-col justify-between gap-4 border-b border-line pb-5 md:mt-32 md:flex-row md:items-end">
+          <h3 className="font-display text-3xl font-bold uppercase tracking-tight md:text-5xl">{g.baTitle}</h3>
+          <p className="max-w-sm text-sm text-white/50">{g.baIntro}</p>
+        </div>
+
+        <Reveal className="mt-8">
           {/* Featured comparison */}
           <figure className="relative">
             <div className="relative border border-line shadow-[0_40px_120px_-40px_rgba(227,24,40,0.35)]">
@@ -59,7 +69,7 @@ export function Gallery() {
               <div>
                 <p className="font-display text-xs uppercase tracking-[0.3em] text-red">{g.vehicle}</p>
                 <AnimatePresence mode="wait">
-                  <motion.h3
+                  <motion.h4
                     key={cur.title}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -68,7 +78,7 @@ export function Gallery() {
                     className="mt-2 font-display text-3xl font-bold uppercase leading-none tracking-tight md:text-5xl"
                   >
                     {cur.title}
-                  </motion.h3>
+                  </motion.h4>
                 </AnimatePresence>
               </div>
               <div className="flex items-center gap-4">
