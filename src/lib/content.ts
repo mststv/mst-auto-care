@@ -7,9 +7,10 @@ export type Dictionary = {
   nav: { services: string; work: string; why: string; contact: string; quote: string; menu: string; close: string };
   hero: { eyebrow: string; title: [string, string]; subtitle: string; ctaQuote: string; ctaWork: string; ctaCall: string; scroll: string; tags: string[] };
   services: {
-    eyebrow: string; title: string; intro: string; wrapLabel: string; detailLabel: string; wrapIntro: string; detailIntro: string; cta: string; from: string; onRequest: string; pick: string; count: string;
+    eyebrow: string; title: string; intro: string; wrapLabel: string; detailLabel: string; wrapIntro: string; detailIntro: string; ppfLabel: string; ppfIntro: string; adLabel: string; adIntro: string; cta: string; from: string; onRequest: string; pick: string; count: string;
     colorChange: ServiceCopy; chromeDelete: ServiceCopy; roofWrap: ServiceCopy; accentWrap: ServiceCopy;
     interior: ServiceCopy; exterior: ServiceCopy; full: ServiceCopy;
+    ppfFront: ServiceCopy; ppfFull: ServiceCopy; ppfPartial: ServiceCopy; adWrap: ServiceCopy; adLettering: ServiceCopy;
   };
   gallery: {
     eyebrow: string; title: string; intro: string; before: string; after: string; drag: string; demoNote: string;
@@ -44,9 +45,18 @@ const en: Dictionary = {
   services: {
     eyebrow: "Services",
     title: "Our services.",
-    intro: "Vinyl wraps and auto detailing. Mobile detailing available.",
+    intro: "Vinyl wraps, PPF, vehicle advertising and detailing. Pick a category.",
     wrapLabel: "Vinyl Wraps",
     detailLabel: "Auto Detailing",
+    ppfLabel: "PPF",
+    ppfIntro: "Clear film that protects your paint.",
+    adLabel: "Vehicle Advertising",
+    adIntro: "Put your business on your car.",
+    ppfFront: { title: "Full Front PPF", text: "Bumper, hood, fenders and mirrors." },
+    ppfFull: { title: "Full Body PPF", text: "Every painted panel protected." },
+    ppfPartial: { title: "Partial PPF", text: "High-impact areas like the bumper or rocker panels." },
+    adWrap: { title: "Commercial Wraps", text: "Full or partial wraps with your brand and design." },
+    adLettering: { title: "Logos & Lettering", text: "Logo, phone number, website and services on your vehicle." },
     wrapIntro: "New color, chrome delete, roof and accents.",
     detailIntro: "Interior, exterior or full. We can come to you.",
     cta: "Free estimate",
@@ -118,7 +128,7 @@ const en: Dictionary = {
     invalidPhone: "Enter a valid phone number",
     privacy: "We only use your details to respond to your request.",
     again: "Send another request",
-    serviceOptions: ["Full Color Change Wrap", "Chrome Delete", "Roof Wrap", "Accent Wrap", "Interior Detailing", "Exterior Detailing", "Full Auto Detailing", "Not sure yet"],
+    serviceOptions: ["Full Color Change Wrap", "Chrome Delete", "Roof Wrap", "Accent Wrap", "PPF (Paint Protection Film)", "Vehicle Advertising / Commercial Wrap", "Interior Detailing", "Exterior Detailing", "Full Auto Detailing", "Not sure yet"],
   },
   contact: {
     eyebrow: "Contact",
@@ -151,9 +161,18 @@ const ru: Dictionary = {
   services: {
     eyebrow: "Услуги",
     title: "Наши услуги.",
-    intro: "Оклейка винилом и детейлинг. Возможен выезд к клиенту.",
+    intro: "Винил, PPF, реклама на авто и детейлинг. Выберите категорию.",
     wrapLabel: "Оклейка винилом",
     detailLabel: "Детейлинг",
+    ppfLabel: "PPF",
+    ppfIntro: "Прозрачная плёнка для защиты краски.",
+    adLabel: "Реклама на авто",
+    adIntro: "Ваш бизнес на вашей машине.",
+    ppfFront: { title: "PPF перед", text: "Бампер, капот, крылья и зеркала." },
+    ppfFull: { title: "PPF весь кузов", text: "Защита всех окрашенных деталей." },
+    ppfPartial: { title: "Частичный PPF", text: "Зоны риска: бампер, пороги и другие." },
+    adWrap: { title: "Рекламная оклейка", text: "Полная или частичная оклейка с вашим брендом и дизайном." },
+    adLettering: { title: "Логотипы и надписи", text: "Логотип, телефон, сайт и услуги на вашем авто." },
     wrapIntro: "Новый цвет, антихром, крыша и акценты.",
     detailIntro: "Салон, кузов или всё вместе. Можем приехать к вам.",
     cta: "Бесплатная оценка",
@@ -225,7 +244,7 @@ const ru: Dictionary = {
     invalidPhone: "Введите корректный номер",
     privacy: "Мы используем ваши данные только для ответа на заявку.",
     again: "Отправить ещё одну заявку",
-    serviceOptions: ["Полная смена цвета", "Антихром", "Оклейка крыши", "Акцентная оклейка", "Детейлинг салона", "Детейлинг кузова", "Комплексный детейлинг", "Пока не знаю"],
+    serviceOptions: ["Полная смена цвета", "Антихром", "Оклейка крыши", "Акцентная оклейка", "PPF (защитная плёнка)", "Реклама на авто", "Детейлинг салона", "Детейлинг кузова", "Комплексный детейлинг", "Пока не знаю"],
   },
   contact: {
     eyebrow: "Контакты",

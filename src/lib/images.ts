@@ -11,6 +11,8 @@ export const images = {
     chromeDelete: "/images/services/chrome-delete.svg",
     roofWrap: "/images/services/roof-wrap.svg",
     accentWrap: "/images/services/accent-wrap.svg",
+    ppf: "/images/services/ppf.svg",
+    commercialWrap: "/images/services/commercial-wrap.svg",
     interiorDetailing: "/images/work/bmw-steering-wheel.jpg",
     exteriorDetailing: "/images/services/exterior-detailing.svg",
     fullDetailing: "/images/services/full-detailing.svg",

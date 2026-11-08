@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Info } from "lucide-react";
 import { BeforeAfter } from "./BeforeAfter";
 import { SectionHeading } from "./SectionHeading";
 import { Reveal } from "./Reveal";
@@ -10,7 +9,7 @@ import { ButtonLink } from "./Button";
 import { InstagramIcon } from "./InstagramIcon";
 import { SiteImage } from "./SiteImage";
 import { WorkGrid } from "./WorkGrid";
-import { images, isPlaceholder } from "@/lib/images";
+import { images } from "@/lib/images";
 import { useLocale } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
@@ -22,7 +21,6 @@ export function Gallery() {
   const current = projects[active];
   const meta = (key: string, i: number) => g.items[key] ?? { title: `${g.project} ${i + 1}`, tag: "" };
   const cur = meta(current.key, active);
-  const showDemoNote = projects.some((p) => isPlaceholder(p.before) || isPlaceholder(p.after));
 
   return (
     <section id="work" aria-labelledby="work-title" className="relative border-t border-line bg-ink-2 py-24 md:py-36">
@@ -57,7 +55,7 @@ export function Gallery() {
                     after={current.after}
                     beforeLabel={g.before}
                     afterLabel={g.after}
-                    alt={`${g.vehicle}, ${cur.title}`}
+                    alt={cur.title}
                     dragLabel={g.drag}
                     sizes="(min-width:1408px) 1328px, 100vw"
                     aspect="aspect-[16/10] sm:aspect-[16/9]"
@@ -67,7 +65,6 @@ export function Gallery() {
             </div>
             <figcaption className="mt-6 grid gap-4 border-b border-line pb-6 md:grid-cols-[1fr_auto] md:items-end">
               <div>
-                <p className="font-display text-xs uppercase tracking-[0.3em] text-red">{g.vehicle}</p>
                 <AnimatePresence mode="wait">
                   <motion.h4
                     key={cur.title}
@@ -120,11 +117,6 @@ export function Gallery() {
             })}
           </div>
 
-          {showDemoNote && (
-            <p className="mt-8 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-white/40">
-              <Info className="size-4 shrink-0 text-red" aria-hidden /> {g.demoNote}
-            </p>
-          )}
         </Reveal>
       </div>
     </section>

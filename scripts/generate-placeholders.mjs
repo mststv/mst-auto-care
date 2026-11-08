@@ -15,38 +15,41 @@ const PILLAR = "M840,367 L828,452";
 
 // Sport sedan side profile modelled on a 2019 BMW M5 (F90) proportions. Demo artwork only.
 const M5 = {
-  body: "M176,652 C160,620 152,585 156,548 C158,515 166,488 182,474 L300,452 C340,448 372,446 392,440 C450,402 505,370 560,346 C640,320 760,312 860,322 C905,328 930,342 960,368 C1000,402 1040,440 1080,458 C1180,470 1300,482 1400,500 C1432,508 1450,526 1456,552 C1462,585 1458,620 1444,652 L1312,652 A112,112 0 0 0 1088,652 L512,652 A112,112 0 0 0 288,652 Z",
-  glass: "M1046,456 L948,370 C918,346 890,334 850,330 C770,324 660,328 588,350 C540,366 500,392 466,420 C458,428 462,438 474,440 L500,442 C506,450 512,454 522,455 Z",
-  pillars: ["M760,330 L748,452", "M1046,456 L1020,455", "M548,362 L525,452"],
-  wheels: [[400, 652], [1200, 652]],
-  wheelR: 96,
+  body: "M172,711 L166,640 C160,590 162,520 176,494 C190,478 210,470 240,468 L420,462 C500,420 580,378 660,366 C740,356 840,354 900,362 C960,372 1040,430 1100,480 C1200,494 1330,506 1410,528 C1440,538 1458,560 1462,590 C1466,630 1462,680 1450,711 L1291,711 A100,100 0 1 0 1121,711 L509,711 A100,100 0 1 0 339,711 Z",
+  glass: "M1078,490 C1030,446 962,388 905,376 C840,366 745,368 668,378 C600,388 535,422 482,468 Q470,490 505,494 L1078,496 Z",
+  pillars: ["M792,369 L782,494", "M520,452 L512,494"],
+  wheels: [[424, 658], [1206, 658]],
+  wheelR: 90,
+  roof: "M482,470 L482,300 L1110,300 L1110,486 L1078,490 C1030,446 962,388 905,376 C840,366 745,368 668,378 C600,388 535,422 482,468 Z",
+  stripeY: 600,
+  groundY: 748,
   details: (trim) => `
-    <path d="M200,500 C520,486 1000,484 1440,520" stroke="#000" stroke-width="3" fill="none" opacity=".35"/>
-    <path d="M300,560 C600,556 1000,556 1330,566" stroke="#fff" stroke-width="2" fill="none" opacity=".10"/>
-    <rect x="1045" y="520" width="52" height="10" rx="3" fill="${trim}" opacity=".9"/>
-    <path d="M1010,446 C1020,430 1052,428 1062,440 L1060,458 L1012,458 Z" fill="#0b0b0b" stroke="${trim}" stroke-width="3"/>
-    <rect x="860" y="488" width="46" height="7" rx="3" fill="${trim}" opacity=".85"/>
-    <rect x="610" y="488" width="46" height="7" rx="3" fill="${trim}" opacity=".85"/>
-    <path d="M1404,508 C1428,512 1446,526 1452,544 L1420,540 C1410,530 1404,520 1404,508 Z" fill="#eaf2ff" opacity=".95"/>
-    <path d="M1446,560 L1458,560 L1458,600 L1440,600 Z" fill="#0a0a0a"/>
-    <path d="M168,486 L250,478 L254,494 L172,502 Z" fill="#E31828"/>
-    <path d="M168,486 L182,474 L250,470 L250,478 Z" fill="#7a0b13"/>
-    <path d="M160,600 L230,604 L228,640 L170,640 Z" fill="#0a0a0a" opacity=".8"/>
-    <path d="M520,640 L1080,640" stroke="#000" stroke-width="12" opacity=".5"/>
-    <ellipse cx="190" cy="636" rx="16" ry="9" fill="#2a2b2d" stroke="#8d9096" stroke-width="3"/>
-    <ellipse cx="226" cy="638" rx="16" ry="9" fill="#2a2b2d" stroke="#8d9096" stroke-width="3"/>`,
+    <path d="M190,520 C520,505 1000,505 1420,540" stroke="#000" stroke-width="3" fill="none" opacity=".35"/>
+    <path d="M330,585 C600,578 1000,578 1300,590" stroke="#fff" stroke-width="2" fill="none" opacity=".10"/>
+    <path d="M782,500 L778,700 M1088,505 L1096,600" stroke="#000" stroke-width="2.5" opacity=".45"/>
+    <path d="M1112,560 L1162,556 L1160,568 L1110,572 Z" fill="${trim}" opacity=".9"/>
+    <path d="M1052,476 C1062,462 1094,460 1104,472 L1102,492 L1056,494 Z" fill="#0b0b0b" stroke="${trim}" stroke-width="3"/>
+    <rect x="900" y="512" width="44" height="7" rx="3" fill="${trim}" opacity=".85"/>
+    <rect x="640" y="512" width="44" height="7" rx="3" fill="${trim}" opacity=".85"/>
+    <path d="M1396,530 C1424,536 1446,548 1456,566 L1424,566 C1410,556 1400,546 1396,530 Z" fill="#eaf2ff" opacity=".95"/>
+    <path d="M1452,600 L1464,600 L1464,650 L1448,650 Z" fill="#0a0a0a"/>
+    <path d="M172,492 L262,484 L266,500 L176,508 Z" fill="#E31828"/>
+    <path d="M172,492 L186,478 L250,472 L262,484 Z" fill="#7a0b13"/>
+    <path d="M509,700 L1121,700 L1121,711 L509,711 Z" fill="#000" opacity=".55"/>
+    <ellipse cx="196" cy="700" rx="15" ry="8" fill="#2a2b2d" stroke="#8d9096" stroke-width="3"/>
+    <ellipse cx="232" cy="702" rx="15" ry="8" fill="#2a2b2d" stroke="#8d9096" stroke-width="3"/>`,
 };
 
 function m5wheel(cx, cy, r) {
   const spokes = Array.from({ length: 10 }, (_, i) => {
     const a = (i * Math.PI * 2) / 10 + (i % 2 ? 0.12 : -0.12);
     const x1 = cx + Math.cos(a) * r * 0.2, y1 = cy + Math.sin(a) * r * 0.2;
-    const x2 = cx + Math.cos(a) * r * 0.66, y2 = cy + Math.sin(a) * r * 0.66;
+    const x2 = cx + Math.cos(a) * r * 0.74, y2 = cy + Math.sin(a) * r * 0.74;
     return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#3b3d40" stroke-width="${(r * 0.07).toFixed(1)}" stroke-linecap="round"/>`;
   }).join("");
   return `<g>
     <circle cx="${cx}" cy="${cy}" r="${r}" fill="#0a0a0a"/>
-    <circle cx="${cx}" cy="${cy}" r="${r * 0.72}" fill="#151618" stroke="#4a4c50" stroke-width="2"/>
+    <circle cx="${cx}" cy="${cy}" r="${r * 0.78}" fill="#151618" stroke="#4a4c50" stroke-width="2"/>
     <path d="M${cx - r * 0.42},${cy - r * 0.36} A${r * 0.55},${r * 0.55} 0 0 1 ${cx + r * 0.3},${cy - r * 0.47} L${cx + r * 0.2},${cy - r * 0.3} A${r * 0.36},${r * 0.36} 0 0 0 ${cx - r * 0.3},${cy - r * 0.22} Z" fill="#E31828"/>
     ${spokes}
     <circle cx="${cx}" cy="${cy}" r="${r * 0.16}" fill="#202224" stroke="#55585c" stroke-width="2"/>
@@ -114,21 +117,21 @@ function car(o) {
   <rect y="${h * 0.74}" width="${w}" height="${h * 0.26}" fill="url(#floor)"/>
   <ellipse cx="${w / 2 + (o.offsetX ?? 0)}" cy="${h * 0.74}" rx="${w * 0.42}" ry="${h * 0.16}" fill="url(#redglow)"/>
   <g transform="translate(${tx.toFixed(1)},${ty.toFixed(1)}) scale(${scale.toFixed(4)})">
-    <ellipse cx="808" cy="728" rx="660" ry="26" fill="#000" opacity=".9" filter="url(#blur)"/>
+    <ellipse cx="808" cy="${m ? m.groundY - 10 : 728}" rx="660" ry="26" fill="#000" opacity=".9" filter="url(#blur)"/>
     <path d="${B}" fill="url(#paint)"/>
     <g clip-path="url(#bodyclip)">
-      ${o.roof ? (m ? `<path d="M380,445 L380,280 L1000,280 L1000,400 L940,362 C900,340 860,334 820,334 L600,346 L470,436 Z" fill="${o.roof}"/>` : `<path d="M540,470 L540,300 L1060,300 L1060,428 L1000,436 L620,452 L584,452 Z" fill="${o.roof}"/>`) : ""}
-      ${o.stripe ? `<rect x="180" y="${m ? 590 : 548}" width="1260" height="16" fill="${o.stripe}"/><rect x="180" y="572" width="1260" height="5" fill="${o.stripe}"/>` : ""}
+      ${o.roof ? (m ? `<path d="${m.roof}" fill="${o.roof}"/>` : `<path d="M540,470 L540,300 L1060,300 L1060,428 L1000,436 L620,452 L584,452 Z" fill="${o.roof}"/>`) : ""}
+      ${o.stripe ? `<rect x="180" y="${m ? m.stripeY : 548}" width="1260" height="16" fill="${o.stripe}"/><rect x="180" y="572" width="1260" height="5" fill="${o.stripe}"/>` : ""}
       <path d="M226,532 C520,470 1000,458 1396,512" stroke="#fff" stroke-width="5" fill="none" opacity="${spec}"/>
       <path d="M240,560 C560,520 1000,520 1400,560" stroke="#fff" stroke-width="2" fill="none" opacity="${spec * 0.6}"/>
       ${beads}
-      <rect x="180" y="610" width="1260" height="40" fill="#000" opacity=".45"/>
+      ${m ? `<rect x="150" y="676" width="1330" height="40" fill="#000" opacity=".55"/><rect x="150" y="640" width="1330" height="36" fill="#000" opacity=".2"/>` : `<rect x="180" y="610" width="1260" height="40" fill="#000" opacity=".45"/>`}
     </g>
     ${m ? `<path d="${m.glass}" fill="url(#glass)" stroke="${trim}" stroke-width="6" stroke-linejoin="round"/>
     ${m.pillars.map((d) => `<path d="${d}" stroke="${trim}" stroke-width="10"/>`).join("")}
     ${m.details(trim)}
     ${m.wheels.map(([x, y]) => m5wheel(x, y, m.wheelR)).join("")}
-    <g opacity=".12" transform="translate(0,1488) scale(1,-1)"><path d="${B}" fill="url(#paint)"/></g>` : `    <path d="${GLASS}" fill="url(#glass)" stroke="${trim}" stroke-width="7" stroke-linejoin="round"/>
+    <g opacity=".12" transform="translate(0,${m.groundY * 2}) scale(1,-1)"><path d="${B}" fill="url(#paint)"/></g>` : `    <path d="${GLASS}" fill="url(#glass)" stroke="${trim}" stroke-width="7" stroke-linejoin="round"/>
     <path d="${PILLAR}" stroke="${trim}" stroke-width="9"/>
     <path d="M1180,470 L1260,476" stroke="${trim}" stroke-width="5" stroke-linecap="round"/>
     <path d="M1360,494 C1380,498 1392,506 1398,516 L1372,520 C1362,510 1356,502 1360,494 Z" fill="#f2f2f2" opacity=".85"/>
@@ -138,11 +141,11 @@ function car(o) {
     <g opacity=".14" transform="translate(0,1460) scale(1,-1)"><path d="${BODY}" fill="url(#paint)"/></g>
 `}
   </g>
-  <g font-family="Arial, Helvetica, sans-serif" fill="#fff">
+  ${o.label === null ? "" : `<g font-family="Arial, Helvetica, sans-serif" fill="#fff">
     <rect x="${24}" y="${h - 58}" width="${Math.max(260, (o.label?.length ?? 10) * 11 + 60)}" height="34" fill="#000" opacity=".55"/>
     <rect x="${24}" y="${h - 58}" width="4" height="34" fill="#E31828"/>
     <text x="${40}" y="${h - 36}" font-size="15" letter-spacing="2" opacity=".85">DEMO IMAGE · ${o.label ?? ""}</text>
-  </g>
+  </g>`}
 </svg>`;
 }
 
@@ -181,17 +184,19 @@ const files = {
   "services/chrome-delete.svg": car({ body: "#1c1f24", body2: "#5b6470", finish: "gloss", trim: "black", label: "CHROME DELETE" }),
   "services/roof-wrap.svg": car({ body: "#bfc3c8", body2: "#f2f3f5", roof: "#0a0a0a", finish: "gloss", trim: "black", label: "ROOF WRAP" }),
   "services/accent-wrap.svg": car({ body: "#4a4f55", body2: "#8b939c", stripe: "#E31828", finish: "matte", trim: "black", label: "ACCENT WRAP" }),
+  "services/commercial-wrap.svg": car({ body: "#d9dcdf", body2: "#ffffff", stripe: "#E31828", finish: "gloss", trim: "black", label: "COMMERCIAL WRAP" }),
+  "services/ppf.svg": car({ body: "#0f0f10", body2: "#6b6f75", finish: "gloss", trim: "black", glow: 0.45, beads: true, label: "PAINT PROTECTION FILM" }),
   "services/interior-detailing.svg": interior({ label: "INTERIOR DETAILING" }),
   "services/exterior-detailing.svg": car({ body: "#0e1a2b", body2: "#2b4a78", finish: "gloss", trim: "chrome", beads: true, glow: 0.4, label: "EXTERIOR DETAILING" }),
   "services/full-detailing.svg": car({ body: "#1a1a1a", body2: "#4d4d4d", finish: "gloss", trim: "chrome", glow: 0.5, label: "FULL AUTO DETAILING" }),
-  "gallery/project-1-before.svg": car({ model: "m5", body: "#c9ccd0", body2: "#ffffff", finish: "gloss", trim: "black", glow: 0.12, label: "BMW M5 F90 · BEFORE" }),
-  "gallery/project-1-after.svg": car({ model: "m5", body: "#121212", body2: "#3a3a3a", finish: "satin", trim: "black", glow: 0.7, label: "BMW M5 F90 · AFTER" }),
-  "gallery/project-2-before.svg": car({ model: "m5", body: "#0b2a5c", body2: "#2f63b8", finish: "gloss", trim: "chrome", glow: 0.12, label: "BMW M5 F90 · BEFORE" }),
-  "gallery/project-2-after.svg": car({ model: "m5", body: "#4f565e", body2: "#9aa3ad", finish: "matte", trim: "black", glow: 0.6, label: "BMW M5 F90 · AFTER" }),
-  "gallery/project-3-before.svg": car({ model: "m5", body: "#9aa0a6", body2: "#e2e5e8", finish: "gloss", trim: "chrome", glow: 0.12, label: "BMW M5 F90 · BEFORE" }),
-  "gallery/project-3-after.svg": car({ model: "m5", body: "#9aa0a6", body2: "#e2e5e8", roof: "#0a0a0a", finish: "gloss", trim: "black", glow: 0.6, label: "BMW M5 F90 · AFTER" }),
-  "gallery/project-4-before.svg": car({ model: "m5", body: "#1d1d1d", body2: "#333", finish: "matte", trim: "chrome", glow: 0.1, label: "BMW M5 F90 · BEFORE" }),
-  "gallery/project-4-after.svg": car({ model: "m5", body: "#0d0d0d", body2: "#5a5a5a", finish: "gloss", trim: "chrome", glow: 0.55, beads: true, label: "BMW M5 F90 · AFTER" }),
+  "gallery/project-1-before.svg": car({ model: "m5", body: "#c9ccd0", body2: "#ffffff", finish: "gloss", trim: "black", glow: 0.12, label: null }),
+  "gallery/project-1-after.svg": car({ model: "m5", body: "#121212", body2: "#3a3a3a", finish: "satin", trim: "black", glow: 0.7, label: null }),
+  "gallery/project-2-before.svg": car({ model: "m5", body: "#0b2a5c", body2: "#2f63b8", finish: "gloss", trim: "chrome", glow: 0.12, label: null }),
+  "gallery/project-2-after.svg": car({ model: "m5", body: "#4f565e", body2: "#9aa3ad", finish: "matte", trim: "black", glow: 0.6, label: null }),
+  "gallery/project-3-before.svg": car({ model: "m5", body: "#9aa0a6", body2: "#e2e5e8", finish: "gloss", trim: "chrome", glow: 0.12, label: null }),
+  "gallery/project-3-after.svg": car({ model: "m5", body: "#9aa0a6", body2: "#e2e5e8", roof: "#0a0a0a", finish: "gloss", trim: "black", glow: 0.6, label: null }),
+  "gallery/project-4-before.svg": car({ model: "m5", body: "#1d1d1d", body2: "#333", finish: "matte", trim: "chrome", glow: 0.1, label: null }),
+  "gallery/project-4-after.svg": car({ model: "m5", body: "#0d0d0d", body2: "#5a5a5a", finish: "gloss", trim: "chrome", glow: 0.55, beads: true, label: null }),
 };
 
 for (const [name, svg] of Object.entries(files)) {
