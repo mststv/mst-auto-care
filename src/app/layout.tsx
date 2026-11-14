@@ -8,9 +8,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter", display: "swap" });
 const oswald = Oswald({ subsets: ["latin", "cyrillic"], weight: ["500", "600", "700"], variable: "--font-oswald", display: "swap" });
 
-const title = "MST Auto Care | Car Wraps & Detailing in Philadelphia, PA & NJ";
+const title = "MST Auto Care | Car Wraps & PPF in Bensalem, Philadelphia & the Main Line";
 const description =
-  "Premium vinyl car wraps, chrome delete, roof wraps and auto detailing in Philadelphia, Bucks County and New Jersey. Mobile detailing available. English & Russian spoken. Free estimates.";
+  "Premium vinyl wraps, clear & color PPF, chrome delete and commercial wraps. Private studio in Bensalem, PA, plus mobile service to Newtown, Yardley, Doylestown, New Hope, King of Prussia, the Main Line, Blue Bell, Chestnut Hill, Cherry Hill, Moorestown, Haddonfield and Princeton. Free estimates.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -20,19 +20,29 @@ export const metadata: Metadata = {
     "car wraps Philadelphia",
     "vinyl wrap Bucks County",
     "chrome delete Philadelphia",
-    "car detailing PA NJ",
     "automotive wraps near me",
     "PPF Philadelphia",
     "paint protection film PA NJ",
     "commercial vehicle wraps Philadelphia",
     "color change wrap",
     "roof wrap",
-    "mobile detailing Pennsylvania",
-    "mobile detailing New Jersey",
+    "clear bra Philadelphia",
+    "vinyl wrap New Jersey",
+    "car wrap Bensalem",
+    "PPF Bucks County",
+    "car wrap Newtown PA",
+    "PPF Doylestown",
+    "car wrap King of Prussia",
+    "PPF Main Line",
+    "PPF Bryn Mawr Villanova",
+    "car wrap Cherry Hill NJ",
+    "PPF Princeton NJ",
+    "color PPF Philadelphia",
   ],
   applicationName: site.name,
   alternates: { canonical: "/" },
   openGraph: {
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "MST Auto Care" }],
     type: "website",
     url: site.url,
     siteName: site.name,
@@ -41,7 +51,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["ru_RU"],
   },
-  twitter: { card: "summary_large_image", title, description },
+  twitter: { card: "summary_large_image", title, description, images: ["/og.png"] },
   robots: { index: true, follow: true },
   formatDetection: { telephone: true },
 };

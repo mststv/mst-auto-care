@@ -9,12 +9,17 @@ export const site = {
   phoneDisplay: "+1 215-833-1552",
   phoneHref: "tel:+12158331552",
   smsNumber: "+12158331552",
-  instagramHandle: "@MST_DETAILING_PA.NJ",
-  instagramUrl: "https://www.instagram.com/mst_detailing_pa.nj/",
+  instagramHandle: "@mst_auto_care",
+  instagramUrl: "https://www.instagram.com/mst_auto_care/",
+  mapsUrl: "https://maps.app.goo.gl/dqxzZZShDdT1wArY7",
   region: "Pennsylvania / New Jersey",
   regionShort: "PA / NJ",
   languages: ["English", "Russian"],
-  areaServed: ["Philadelphia, PA", "Bucks County, PA", "Pennsylvania", "New Jersey"],
+  baseCity: "Bensalem, PA",
+  /** Towns we serve (mobile service). Shown on the site and in Google structured data. */
+  areasPA: ["Bensalem", "Newtown", "Yardley", "Doylestown", "New Hope", "Huntingdon Valley", "Blue Bell", "Ambler", "Chestnut Hill", "King of Prussia", "Bryn Mawr", "Villanova", "Wayne", "Gladwyne", "Philadelphia"],
+  areasNJ: ["Cherry Hill", "Moorestown", "Haddonfield", "Princeton"],
+  areaServed: ["Philadelphia, PA", "Bucks County, PA", "Montgomery County, PA", "Main Line, PA", "Pennsylvania", "New Jersey"],
 } as const;
 
 /**

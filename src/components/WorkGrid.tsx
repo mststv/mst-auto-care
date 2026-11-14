@@ -36,20 +36,20 @@ export function WorkGrid() {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+      <div className="grid grid-cols-2 gap-3 md:mx-auto md:max-w-4xl md:gap-4">
         {photos.map((p, i) => (
-          <Reveal key={p.src} delay={i * 0.08} className={i === 0 ? "col-span-2 md:col-span-1" : ""}>
+          <Reveal key={p.src} delay={(i % 4) * 0.08}>
             <button
               type="button"
               onClick={() => setOpen(i)}
               aria-label={`${g.open} ${i + 1}`}
-              className={`group relative block w-full overflow-hidden border border-line bg-ink ${i === 0 ? "aspect-[4/3] md:aspect-[4/5]" : "aspect-[3/4] md:aspect-[4/5]"}`}
+              className={`group relative block w-full overflow-hidden border border-line bg-ink aspect-[3/4] md:aspect-[4/5]`}
             >
               <SiteImage
                 src={p.src}
                 alt={alt(i)}
                 fill
-                sizes="(min-width:1408px) 440px, (min-width:768px) 33vw, 50vw"
+                sizes="(min-width:1408px) 330px, (min-width:768px) 25vw, 50vw"
                 className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-[1.04]"
               />
               <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

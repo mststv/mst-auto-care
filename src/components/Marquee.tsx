@@ -4,7 +4,7 @@ import { useLocale } from "@/lib/i18n";
 
 export function Marquee() {
   const { t } = useLocale();
-  const words = [t.services.colorChange.title, t.services.chromeDelete.title, t.services.roofWrap.title, t.services.accentWrap.title, t.services.full.title];
+  const words = [t.services.colorChange.title, t.services.chromeDelete.title, t.services.roofWrap.title, t.services.accentWrap.title, t.services.ppfFull.title];
   const row = [...words, ...words];
   return (
     <div aria-hidden className="overflow-hidden border-y border-line bg-ink-2 py-5">

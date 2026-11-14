@@ -1,12 +1,10 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Phone } from "lucide-react";
+import { MessageSquare, Phone } from "lucide-react";
 import { site } from "@/lib/site";
 import { useRef } from "react";
-import { SiteImage } from "./SiteImage";
 import { ButtonLink } from "./Button";
-import { images } from "@/lib/images";
 import { useLocale } from "@/lib/i18n";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -16,7 +14,6 @@ export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "18%"]);
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   const item = (i: number) => ({
@@ -27,11 +24,6 @@ export function Hero() {
 
   return (
     <section ref={ref} id="top" aria-labelledby="hero-title" className="grain relative isolate flex min-h-[100svh] items-end overflow-hidden">
-      <motion.div style={{ y: imgY }} className="absolute inset-0 -z-20">
-        <div className="absolute inset-0 animate-[slow-zoom_2.6s_cubic-bezier(0.16,1,0.3,1)_both]">
-          <SiteImage src={images.hero.src} alt={images.hero.alt} fill priority sizes="100vw" className="object-cover object-[70%_center]" />
-        </div>
-      </motion.div>
 
       {/* Cinematic overlays */}
       <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-ink/85 via-ink/55 to-ink/10 md:from-ink md:via-ink/75" />
@@ -57,12 +49,11 @@ export function Hero() {
         </motion.p>
 
         <motion.div {...item(4)} className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
-          <ButtonLink href="#quote">
-            {t.hero.ctaQuote}
-            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
-          </ButtonLink>
-          <ButtonLink href={site.phoneHref} variant="outline">
+          <ButtonLink href={site.phoneHref}>
             <Phone className="size-4" aria-hidden /> {t.hero.ctaCall} {site.phoneDisplay}
+          </ButtonLink>
+          <ButtonLink href={`sms:${site.smsNumber}`} variant="outline">
+            <MessageSquare className="size-4" aria-hidden /> {t.hero.ctaText}
           </ButtonLink>
         </motion.div>
 

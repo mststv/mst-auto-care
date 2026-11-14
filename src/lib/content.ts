@@ -5,12 +5,11 @@ type ServiceCopy = { title: string; text: string };
 
 export type Dictionary = {
   nav: { services: string; work: string; why: string; contact: string; quote: string; menu: string; close: string };
-  hero: { eyebrow: string; title: [string, string]; subtitle: string; ctaQuote: string; ctaWork: string; ctaCall: string; scroll: string; tags: string[] };
+  hero: { eyebrow: string; title: [string, string]; subtitle: string; ctaQuote: string; ctaWork: string; ctaCall: string; ctaText: string; scroll: string; tags: string[] };
   services: {
-    eyebrow: string; title: string; intro: string; wrapLabel: string; detailLabel: string; wrapIntro: string; detailIntro: string; ppfLabel: string; ppfIntro: string; adLabel: string; adIntro: string; cta: string; from: string; onRequest: string; pick: string; count: string;
+    eyebrow: string; title: string; intro: string; wrapLabel: string; wrapIntro: string; ppfLabel: string; ppfIntro: string; adLabel: string; adIntro: string; cta: string; from: string; onRequest: string; pick: string; count: string;
     colorChange: ServiceCopy; chromeDelete: ServiceCopy; roofWrap: ServiceCopy; accentWrap: ServiceCopy;
-    interior: ServiceCopy; exterior: ServiceCopy; full: ServiceCopy;
-    ppfFront: ServiceCopy; ppfFull: ServiceCopy; ppfPartial: ServiceCopy; adWrap: ServiceCopy; adLettering: ServiceCopy;
+        ppfFront: ServiceCopy; ppfFull: ServiceCopy; ppfPartial: ServiceCopy; ppfColor: ServiceCopy; adWrap: ServiceCopy; adLettering: ServiceCopy;
   };
   gallery: {
     eyebrow: string; title: string; intro: string; before: string; after: string; drag: string; demoNote: string;
@@ -22,43 +21,44 @@ export type Dictionary = {
   why: { eyebrow: string; title: string; items: { title: string; text: string }[] };
   quote: {
     eyebrow: string; title: string; intro: string; steps: string[];
-    fields: { name: string; phone: string; email: string; make: string; model: string; year: string; service: string; details: string; detailsPh: string; select: string };
+    fields: { name: string; phone: string; car: string; service: string; details: string; detailsPh: string; select: string };
+    optional: string;
     submit: string; sending: string; successTitle: string; successText: string; smsTitle: string; smsText: string; error: string; required: string; invalidEmail: string; invalidPhone: string; privacy: string; again: string;
     serviceOptions: string[];
   };
-  contact: { eyebrow: string; title: string; text: string; call: string; instagram: string; quote: string; location: string; phone: string; languages: string; languagesValue: string; social: string };
+  contact: { eyebrow: string; title: string; text: string; call: string; sms: string; instagram: string; quote: string; location: string; areaValue: string; areasTitle: string; areasIntro: string; hours: string; hoursValue: string; maps: string; mapsValue: string; phone: string; languages: string; languagesValue: string; social: string };
   footer: { tagline: string; rights: string; languages: string };
 };
 
 const en: Dictionary = {
-  nav: { services: "Services", work: "Our Work", why: "Why MST", contact: "Contact", quote: "Free Estimates", menu: "Open menu", close: "Close menu" },
+  nav: { services: "Services", work: "Photos", why: "Why MST", contact: "Contact", quote: "Free Estimates", menu: "Open menu", close: "Close menu" },
   hero: {
-    eyebrow: "Vinyl Wraps · Detailing · PA / NJ",
+    eyebrow: "Vinyl Wraps · PPF · PA / NJ",
     title: ["TRANSFORM", "YOUR RIDE."],
-    subtitle: "Premium Automotive Wraps & Detailing in PA / NJ.",
+    subtitle: "Premium Vinyl Wraps & Paint Protection Film in PA / NJ.",
     ctaCall: "Call",
+    ctaText: "Text Us",
     ctaQuote: "Free Estimates",
     ctaWork: "View Our Work",
     scroll: "Scroll",
-    tags: ["Color Change", "Chrome Delete", "Roof Wraps", "Detailing"],
+    tags: ["Color Change", "Chrome Delete", "Roof Wraps", "PPF"],
   },
   services: {
     eyebrow: "Services",
     title: "Our services.",
-    intro: "Vinyl wraps, PPF, vehicle advertising and detailing. Pick a category.",
+    intro: "Vinyl wraps, PPF and vehicle advertising. Pick a category.",
     wrapLabel: "Vinyl Wraps",
-    detailLabel: "Auto Detailing",
     ppfLabel: "PPF",
-    ppfIntro: "Clear film that protects your paint.",
+    ppfIntro: "Clear or color film that protects your paint.",
     adLabel: "Vehicle Advertising",
     adIntro: "Put your business on your car.",
     ppfFront: { title: "Full Front PPF", text: "Bumper, hood, fenders and mirrors." },
     ppfFull: { title: "Full Body PPF", text: "Every painted panel protected." },
     ppfPartial: { title: "Partial PPF", text: "High-impact areas like the bumper or rocker panels." },
+    ppfColor: { title: "Color PPF", text: "Change your color and protect your paint at the same time. Gloss, satin or matte." },
     adWrap: { title: "Commercial Wraps", text: "Full or partial wraps with your brand and design." },
     adLettering: { title: "Logos & Lettering", text: "Logo, phone number, website and services on your vehicle." },
     wrapIntro: "New color, chrome delete, roof and accents.",
-    detailIntro: "Interior, exterior or full. We can come to you.",
     cta: "Free estimate",
     from: "Starting at",
     onRequest: "Price on request",
@@ -68,9 +68,6 @@ const en: Dictionary = {
     chromeDelete: { title: "Chrome Delete", text: "Chrome trim, badges and grilles turned black." },
     roofWrap: { title: "Roof Wraps", text: "Gloss black or any color roof." },
     accentWrap: { title: "Accent Wraps", text: "Mirrors, stripes, spoilers, hood and trim." },
-    interior: { title: "Interior Detailing", text: "Seats, carpets, leather and plastics deep cleaned." },
-    exterior: { title: "Exterior Detailing", text: "Hand wash, wheels, tires and protection." },
-    full: { title: "Full Auto Detailing", text: "Inside and out, the complete package." },
   },
   gallery: {
     eyebrow: "Our Work",
@@ -78,9 +75,9 @@ const en: Dictionary = {
     intro: "Real cars, real results. For our latest work, follow us on Instagram.",
     workTitle: "Recent projects",
     workIntro: "",
-    workTag: "Interior Detailing",
+    workTag: "Wraps & PPF",
     baTitle: "Before & After",
-    baIntro: "Drag the slider to compare. Pick a project to switch.",
+    baIntro: "Drag the slider to compare.",
     close: "Close",
     prev: "Previous photo",
     next: "Next photo",
@@ -90,10 +87,10 @@ const en: Dictionary = {
     drag: "Drag to compare before and after",
     demoNote: "Before & after: demo illustrations until real photo pairs are added.",
     items: {
-      p1: { title: "Alpine White to Satin Black", tag: "Full Color Change" },
-      p2: { title: "Blue to Matte Grey", tag: "Color Change + Chrome Delete" },
-      p3: { title: "Gloss Black Roof", tag: "Roof Wrap + Chrome Delete" },
-      p4: { title: "Deep Gloss Restore", tag: "Full Auto Detailing" },
+      p1: { title: "White to Matte Black", tag: "Full Color Change" },
+      p2: { title: "White to Nardo Grey", tag: "Full Color Change" },
+      p3: { title: "White to Gloss Red", tag: "Full Color Change" },
+      p4: { title: "White to Gloss Blue", tag: "Full Color Change" },
     },
     vehicle: "BMW M5 F90 · 2019",
     project: "Project",
@@ -106,17 +103,17 @@ const en: Dictionary = {
       { title: "Attention to Detail", text: "Clean edges and seams." },
       { title: "Professional Installation", text: "Careful prep, clean finish." },
       { title: "Personalized Service", text: "We help you choose." },
-      { title: "Premium Materials", text: "Quality films and products." },
-      { title: "Mobile Detailing", text: "We come to you in PA / NJ." },
+      { title: "Premium Materials", text: "Quality vinyl and protection films." },
+      { title: "Mobile Service", text: "We come to you anywhere in PA / NJ." },
     ],
   },
   quote: {
     eyebrow: "Contact us",
-    title: "Free estimates.",
-    intro: "Fill out the form and we will contact you with a price. No obligation.",
+    title: "Free Estimates",
+    intro: "Leave your name and phone. We will call you back with a price. No obligation.",
     steps: ["Send your request", "We contact you to discuss options", "Schedule your appointment"],
-    fields: { name: "Full Name", phone: "Phone Number", email: "Email", make: "Vehicle Make", model: "Vehicle Model", year: "Vehicle Year", service: "Service Interested In", details: "Additional Details", detailsPh: "Color ideas, finish, parts to wrap, timing, questions...", select: "Select a service" },
-    submit: "Request My Quote",
+    fields: { name: "Name", phone: "Phone Number", car: "Car (make, model, year)", service: "Service", details: "Message", detailsPh: "Color ideas, finish, parts to wrap, timing, questions...", select: "Select a service" },
+    submit: "Send",
     sending: "Sending...",
     successTitle: "Request received.",
     successText: "Thank you. We will reach out shortly to talk through your project.",
@@ -127,54 +124,63 @@ const en: Dictionary = {
     invalidEmail: "Enter a valid email",
     invalidPhone: "Enter a valid phone number",
     privacy: "We only use your details to respond to your request.",
+    optional: "optional",
     again: "Send another request",
-    serviceOptions: ["Full Color Change Wrap", "Chrome Delete", "Roof Wrap", "Accent Wrap", "PPF (Paint Protection Film)", "Vehicle Advertising / Commercial Wrap", "Interior Detailing", "Exterior Detailing", "Full Auto Detailing", "Not sure yet"],
+    serviceOptions: ["Full Color Change Wrap", "Chrome Delete", "Roof Wrap", "Accent Wrap", "PPF (Paint Protection Film)", "Vehicle Advertising / Commercial Wrap", "Not sure yet"],
   },
   contact: {
     eyebrow: "Contact",
     title: "Ready when you are.",
-    text: "Call, text or message us on Instagram. We speak English and Russian.",
+    text: "Call, text or message us on Instagram. We come to you. We speak English and Russian.",
     call: "Call Now",
+    sms: "Text Us",
     instagram: "Instagram",
     quote: "Free Estimates",
     location: "Service Area",
+    areaValue: "Private studio in Bensalem, PA. Mobile service available. Address provided upon booking.",
+    areasTitle: "Areas we serve",
+    areasIntro: "We come to you in Bucks County, the Main Line, Montgomery County, Philadelphia and South Jersey, including:",
+    hours: "Hours",
+    hoursValue: "By appointment",
+    maps: "Google Maps",
+    mapsValue: "Location & reviews",
     phone: "Phone",
     languages: "Languages",
     languagesValue: "English / Russian",
     social: "Instagram",
   },
-  footer: { tagline: "Automotive Wraps & Detailing", rights: "All rights reserved.", languages: "English / Russian" },
+  footer: { tagline: "Vinyl Wraps & PPF", rights: "All rights reserved.", languages: "English / Russian" },
 };
 
 const ru: Dictionary = {
-  nav: { services: "Услуги", work: "Работы", why: "Почему MST", contact: "Контакты", quote: "Бесплатная оценка", menu: "Открыть меню", close: "Закрыть меню" },
+  nav: { services: "Услуги", work: "Фото", why: "Почему MST", contact: "Контакты", quote: "Бесплатная оценка", menu: "Открыть меню", close: "Закрыть меню" },
   hero: {
-    eyebrow: "Оклейка винилом · Детейлинг · PA / NJ",
+    eyebrow: "Оклейка винилом · PPF · PA / NJ",
     title: ["ПРЕОБРАЗИ", "СВОЁ АВТО."],
-    subtitle: "Премиальная оклейка и детейлинг автомобилей в Пенсильвании и Нью-Джерси.",
+    subtitle: "Премиальная оклейка винилом и защитной плёнкой в Пенсильвании и Нью-Джерси.",
     ctaCall: "Позвонить",
+    ctaText: "Написать SMS",
     ctaQuote: "Бесплатная оценка",
     ctaWork: "Наши работы",
     scroll: "Вниз",
-    tags: ["Смена цвета", "Антихром", "Оклейка крыши", "Детейлинг"],
+    tags: ["Смена цвета", "Антихром", "Оклейка крыши", "PPF"],
   },
   services: {
     eyebrow: "Услуги",
     title: "Наши услуги.",
-    intro: "Винил, PPF, реклама на авто и детейлинг. Выберите категорию.",
+    intro: "Винил, PPF и реклама на авто. Выберите категорию.",
     wrapLabel: "Оклейка винилом",
-    detailLabel: "Детейлинг",
     ppfLabel: "PPF",
-    ppfIntro: "Прозрачная плёнка для защиты краски.",
+    ppfIntro: "Прозрачная или цветная плёнка для защиты краски.",
     adLabel: "Реклама на авто",
     adIntro: "Ваш бизнес на вашей машине.",
     ppfFront: { title: "PPF перед", text: "Бампер, капот, крылья и зеркала." },
     ppfFull: { title: "PPF весь кузов", text: "Защита всех окрашенных деталей." },
     ppfPartial: { title: "Частичный PPF", text: "Зоны риска: бампер, пороги и другие." },
+    ppfColor: { title: "Цветной PPF", text: "Смена цвета и защита краски одновременно. Глянец, сатин или мат." },
     adWrap: { title: "Рекламная оклейка", text: "Полная или частичная оклейка с вашим брендом и дизайном." },
     adLettering: { title: "Логотипы и надписи", text: "Логотип, телефон, сайт и услуги на вашем авто." },
     wrapIntro: "Новый цвет, антихром, крыша и акценты.",
-    detailIntro: "Салон, кузов или всё вместе. Можем приехать к вам.",
     cta: "Бесплатная оценка",
     from: "От",
     onRequest: "Цена по запросу",
@@ -184,9 +190,6 @@ const ru: Dictionary = {
     chromeDelete: { title: "Антихром", text: "Хром на молдингах, шильдиках и решётке в чёрный." },
     roofWrap: { title: "Оклейка крыши", text: "Глянцевая чёрная или крыша любого цвета." },
     accentWrap: { title: "Акцентная оклейка", text: "Зеркала, полосы, спойлеры, капот и детали." },
-    interior: { title: "Детейлинг салона", text: "Глубокая чистка сидений, ковров, кожи и пластика." },
-    exterior: { title: "Детейлинг кузова", text: "Ручная мойка, диски, шины и защита." },
-    full: { title: "Комплексный детейлинг", text: "Снаружи и внутри, полный пакет." },
   },
   gallery: {
     eyebrow: "Наши работы",
@@ -194,9 +197,9 @@ const ru: Dictionary = {
     intro: "Реальные машины, реальный результат. Свежие работы смотрите в Instagram.",
     workTitle: "Недавние проекты",
     workIntro: "",
-    workTag: "Детейлинг салона",
+    workTag: "Винил и PPF",
     baTitle: "До и после",
-    baIntro: "Перетащите ползунок, чтобы сравнить. Выберите проект, чтобы переключить.",
+    baIntro: "Перетащите ползунок, чтобы сравнить.",
     close: "Закрыть",
     prev: "Предыдущее фото",
     next: "Следующее фото",
@@ -206,10 +209,10 @@ const ru: Dictionary = {
     drag: "Перетащите, чтобы сравнить до и после",
     demoNote: "До и после: демо-иллюстрации, пока не добавлены реальные пары фото.",
     items: {
-      p1: { title: "Белый в сатиновый чёрный", tag: "Полная смена цвета" },
-      p2: { title: "Синий в матовый серый", tag: "Смена цвета + антихром" },
-      p3: { title: "Глянцевая чёрная крыша", tag: "Оклейка крыши + антихром" },
-      p4: { title: "Глубокий глянец", tag: "Комплексный детейлинг" },
+      p1: { title: "Белый в матовый чёрный", tag: "Полная смена цвета" },
+      p2: { title: "Белый в серый Nardo", tag: "Полная смена цвета" },
+      p3: { title: "Белый в глянцевый красный", tag: "Полная смена цвета" },
+      p4: { title: "Белый в глянцевый синий", tag: "Полная смена цвета" },
     },
     vehicle: "BMW M5 F90 · 2019",
     project: "Проект",
@@ -222,17 +225,17 @@ const ru: Dictionary = {
       { title: "Внимание к деталям", text: "Аккуратные кромки и стыки." },
       { title: "Профессиональная установка", text: "Подготовка и чистый результат." },
       { title: "Индивидуальный подход", text: "Поможем с выбором." },
-      { title: "Качественные материалы", text: "Качественные плёнки и химия." },
-      { title: "Выездной детейлинг", text: "Приедем к вам в PA / NJ." },
+      { title: "Качественные материалы", text: "Качественный винил и защитные плёнки." },
+      { title: "Выездной сервис", text: "Приедем к вам в любую точку PA / NJ." },
     ],
   },
   quote: {
     eyebrow: "Связаться с нами",
-    title: "Бесплатная оценка.",
-    intro: "Заполните форму, и мы свяжемся с вами с ценой. Без обязательств.",
+    title: "Бесплатная оценка",
+    intro: "Оставьте имя и телефон. Мы перезвоним и назовём цену. Без обязательств.",
     steps: ["Отправьте заявку", "Мы свяжемся и обсудим варианты", "Запишем вас на удобное время"],
-    fields: { name: "Имя и фамилия", phone: "Телефон", email: "Email", make: "Марка", model: "Модель", year: "Год выпуска", service: "Интересующая услуга", details: "Дополнительно", detailsPh: "Идеи по цвету, фактуре, какие детали оклеить, сроки, вопросы...", select: "Выберите услугу" },
-    submit: "Получить расчёт",
+    fields: { name: "Имя", phone: "Телефон", car: "Машина (марка, модель, год)", service: "Услуга", details: "Сообщение", detailsPh: "Идеи по цвету, фактуре, какие детали оклеить, сроки, вопросы...", select: "Выберите услугу" },
+    submit: "Отправить",
     sending: "Отправка...",
     successTitle: "Заявка получена.",
     successText: "Спасибо. Мы скоро свяжемся с вами, чтобы обсудить проект.",
@@ -243,23 +246,32 @@ const ru: Dictionary = {
     invalidEmail: "Введите корректный email",
     invalidPhone: "Введите корректный номер",
     privacy: "Мы используем ваши данные только для ответа на заявку.",
+    optional: "необязательно",
     again: "Отправить ещё одну заявку",
-    serviceOptions: ["Полная смена цвета", "Антихром", "Оклейка крыши", "Акцентная оклейка", "PPF (защитная плёнка)", "Реклама на авто", "Детейлинг салона", "Детейлинг кузова", "Комплексный детейлинг", "Пока не знаю"],
+    serviceOptions: ["Полная смена цвета", "Антихром", "Оклейка крыши", "Акцентная оклейка", "PPF (защитная плёнка)", "Реклама на авто", "Пока не знаю"],
   },
   contact: {
     eyebrow: "Контакты",
     title: "Готовы, когда вы готовы.",
-    text: "Звоните, пишите SMS или в Instagram. Говорим по-английски и по-русски.",
+    text: "Звоните, пишите SMS или в Instagram. Приедем к вам. Говорим по-английски и по-русски.",
     call: "Позвонить",
+    sms: "Написать SMS",
     instagram: "Instagram",
     quote: "Бесплатная оценка",
     location: "Зона обслуживания",
+    areaValue: "Закрытая студия в Bensalem, PA. Возможен выезд. Адрес сообщаем при записи.",
+    areasTitle: "Где мы работаем",
+    areasIntro: "Приезжаем к вам в Bucks County, Main Line, Montgomery County, Филадельфию и South Jersey, в том числе:",
+    hours: "Часы работы",
+    hoursValue: "По записи",
+    maps: "Google Maps",
+    mapsValue: "Адрес и отзывы",
     phone: "Телефон",
     languages: "Языки",
     languagesValue: "Английский / Русский",
     social: "Instagram",
   },
-  footer: { tagline: "Оклейка и детейлинг автомобилей", rights: "Все права защищены.", languages: "English / Русский" },
+  footer: { tagline: "Оклейка винилом и PPF", rights: "Все права защищены.", languages: "English / Русский" },
 };
 
 export const dictionaries: Record<Locale, Dictionary> = { en, ru };

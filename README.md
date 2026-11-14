@@ -1,6 +1,6 @@
 # MST Auto Care website
 
-Premium one-page site for MST Auto Care: vinyl wraps and auto detailing in Pennsylvania and New Jersey.
+Premium one-page site for MST Auto Care: vinyl wraps, PPF and vehicle advertising in Pennsylvania and New Jersey.
 Built with Next.js 15 (App Router), TypeScript, Tailwind CSS 4, Framer Motion and Lucide icons.
 English and Russian, switchable from the header.
 
@@ -52,3 +52,11 @@ Set `NEXT_PUBLIC_SITE_URL` to your real domain and, optionally, `NEXT_PUBLIC_FOR
 ## Regenerating the demo artwork
 
 `node scripts/generate-placeholders.mjs` rewrites the SVG placeholders. Not needed once you use real photos.
+
+## Hosting (GitHub Pages)
+
+Every push to `main` builds a static copy of the site and publishes it to GitHub Pages
+(`.github/workflows/deploy.yml`). Live URL: https://mststv.github.io/mst-auto-care/
+
+When a custom domain is connected, change `NEXT_PUBLIC_BASE_PATH` to an empty string and
+`NEXT_PUBLIC_SITE_URL` to the new domain in the workflow.

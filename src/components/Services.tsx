@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, BadgeDollarSign, Droplets, Layers, Megaphone, Paintbrush, Shield, ShieldCheck, ShieldHalf, Sofa, Sparkles, SquareDashed, CarFront } from "lucide-react";
+import { BadgeDollarSign, Layers, Megaphone, Paintbrush, Shield, ShieldCheck, ShieldHalf, SquareDashed, CarFront, Palette } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { SiteImage } from "./SiteImage";
@@ -13,9 +13,9 @@ import { useLocale } from "@/lib/i18n";
 type Key = keyof typeof startingPrices;
 type Item = { key: Key; Icon: LucideIcon };
 
-type CatId = "wraps" | "ppf" | "ads" | "detailing";
+type CatId = "wraps" | "ppf" | "ads";
 
-const categories: { id: CatId; img: string; items: Item[] }[] = [
+const categories: { id: CatId; img: string | null; items: Item[] }[] = [
   {
     id: "wraps",
     img: images.services.colorChange,
@@ -33,23 +33,15 @@ const categories: { id: CatId; img: string; items: Item[] }[] = [
       { key: "ppfFront", Icon: ShieldHalf },
       { key: "ppfFull", Icon: ShieldCheck },
       { key: "ppfPartial", Icon: Shield },
+      { key: "ppfColor", Icon: Palette },
     ],
   },
   {
     id: "ads",
-    img: images.services.commercialWrap,
+    img: null,
     items: [
       { key: "adWrap", Icon: Megaphone },
       { key: "adLettering", Icon: BadgeDollarSign },
-    ],
-  },
-  {
-    id: "detailing",
-    img: images.services.interiorDetailing,
-    items: [
-      { key: "interior", Icon: Sofa },
-      { key: "exterior", Icon: Droplets },
-      { key: "full", Icon: Sparkles },
     ],
   },
 ];
@@ -59,8 +51,8 @@ export function Services() {
   const s = t.services;
   const [active, setActive] = useState<CatId>("wraps");
   const cat = categories.find((c) => c.id === active)!;
-  const label = (id: CatId) => ({ wraps: s.wrapLabel, ppf: s.ppfLabel, ads: s.adLabel, detailing: s.detailLabel })[id];
-  const intro = (id: CatId) => ({ wraps: s.wrapIntro, ppf: s.ppfIntro, ads: s.adIntro, detailing: s.detailIntro })[id];
+  const label = (id: CatId) => ({ wraps: s.wrapLabel, ppf: s.ppfLabel, ads: s.adLabel })[id];
+  const intro = (id: CatId) => ({ wraps: s.wrapIntro, ppf: s.ppfIntro, ads: s.adIntro })[id];
   const fmt = (n: number) => new Intl.NumberFormat(locale === "ru" ? "ru-RU" : "en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
 
   return (
@@ -69,7 +61,7 @@ export function Services() {
         <SectionHeading id="services-title" eyebrow={s.eyebrow} title={s.title} intro={s.intro} />
 
         {/* Category picker */}
-        <div role="tablist" aria-label={s.pick} className="mt-12 grid grid-cols-2 gap-3 md:mt-16 md:gap-4 lg:grid-cols-4">
+        <div role="tablist" aria-label={s.pick} className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-16 md:gap-4">
           {categories.map((c) => {
             const on = c.id === active;
             return (
@@ -83,7 +75,7 @@ export function Services() {
                 onClick={() => setActive(c.id)}
                 className={`group relative flex min-h-[9rem] items-end overflow-hidden border text-left transition-colors duration-300 md:min-h-[13rem] ${on ? "border-red" : "border-line hover:border-white/30"}`}
               >
-                <SiteImage src={c.img} alt="" fill sizes="(min-width:1024px) 25vw, 50vw" className={`object-cover transition-all duration-700 ease-out-expo group-hover:scale-105 ${on ? "opacity-70" : "opacity-35 group-hover:opacity-55"}`} />
+                {c.img && <SiteImage src={c.img} alt="" fill sizes="(min-width:1024px) 25vw, 50vw" className={`object-cover transition-all duration-700 ease-out-expo group-hover:scale-105 ${on ? "opacity-70" : "opacity-35 group-hover:opacity-55"}`} />}
                 <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
                 <span className="relative flex w-full flex-col gap-2 p-4 md:p-6">
                   <span>
@@ -118,8 +110,8 @@ export function Services() {
               const price = startingPrices[key];
               return (
                 <li key={key}>
-                  <a href="#quote" className="group grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-3 p-5 transition-colors hover:bg-white/[0.03] md:grid-cols-[auto_1fr_auto_auto] md:gap-x-8 md:p-7">
-                    <span className="grid size-11 place-items-center border border-white/15 text-red transition-colors group-hover:border-red">
+                  <div className="grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-3 p-5 md:grid-cols-[auto_1fr_auto] md:gap-x-8 md:p-7">
+                    <span className="grid size-11 place-items-center border border-white/15 text-red">
                       <Icon className="size-5" aria-hidden />
                     </span>
                     <span className="min-w-0">
@@ -136,10 +128,7 @@ export function Services() {
                         <span className="font-display text-sm uppercase tracking-[0.15em] text-white/60">{s.onRequest}</span>
                       )}
                     </span>
-                    <span className="col-start-2 inline-flex items-center gap-2 font-display text-xs uppercase tracking-[0.2em] text-red md:col-start-auto">
-                      {s.cta} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
-                    </span>
-                  </a>
+                  </div>
                 </li>
               );
             })}

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, MessageSquare, Phone, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { ButtonLink } from "./Button";
 import { useLocale } from "@/lib/i18n";
@@ -51,7 +51,6 @@ export function Header() {
 
   const links = [
     { href: "#services", label: t.nav.services },
-    { href: "#work", label: t.nav.work },
     { href: "#why", label: t.nav.why },
     { href: "#contact", label: t.nav.contact },
   ];
@@ -93,11 +92,19 @@ export function Header() {
               {site.phoneDisplay}
             </a>
             <span className="hidden md:block">
-              <ButtonLink href="#quote" className="!px-5 !py-3 !text-xs">
-                {t.nav.quote}
+              <ButtonLink href={`sms:${site.smsNumber}`} variant="outline" className="!px-5 !py-3 !text-xs">
+                <MessageSquare className="size-4" aria-hidden /> SMS
               </ButtonLink>
             </span>
-            <a href={site.phoneHref} aria-label={`Call ${site.phoneDisplay}`} className="grid size-11 place-items-center border border-white/15 md:hidden">
+            <span className="-ml-2 hidden md:block">
+              <ButtonLink href={site.phoneHref} className="!px-5 !py-3 !text-xs">
+                <Phone className="size-4" aria-hidden /> {t.hero.ctaCall}
+              </ButtonLink>
+            </span>
+            <a href={`sms:${site.smsNumber}`} aria-label={`Text ${site.phoneDisplay}`} className="grid size-11 place-items-center border border-white/15 md:hidden">
+              <MessageSquare className="size-4" />
+            </a>
+            <a href={site.phoneHref} aria-label={`Call ${site.phoneDisplay}`} className="-ml-3 grid size-11 place-items-center border border-white/15 md:hidden">
               <Phone className="size-4" />
             </a>
             <button
@@ -135,7 +142,7 @@ export function Header() {
             </div>
             <nav aria-label="Mobile" className="container-x mt-8 flex-1">
               <ul className="space-y-2">
-                {[...links, { href: "#quote", label: t.nav.quote }].map((l, i) => (
+                {links.map((l, i) => (
                   <motion.li key={l.href} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 * i + 0.1 }}>
                     <a
                       href={l.href}
