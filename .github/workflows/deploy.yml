@@ -19,8 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       STATIC_EXPORT: "1"
-      NEXT_PUBLIC_BASE_PATH: /mst-auto-care
-      NEXT_PUBLIC_SITE_URL: https://mststv.github.io/mst-auto-care
+      NEXT_PUBLIC_SITE_URL: https://mstautowraps.com
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
