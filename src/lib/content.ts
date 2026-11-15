@@ -97,7 +97,7 @@ const en: Dictionary = {
     instagram: "See more on Instagram",
   },
   why: {
-    eyebrow: "Why MST Auto Care",
+    eyebrow: "Why MST Auto Wraps",
     title: "Why MST.",
     items: [
       { title: "Attention to Detail", text: "Clean edges and seams." },
@@ -219,7 +219,7 @@ const ru: Dictionary = {
     instagram: "Больше в Instagram",
   },
   why: {
-    eyebrow: "Почему MST Auto Care",
+    eyebrow: "Почему MST Auto Wraps",
     title: "Почему MST.",
     items: [
       { title: "Внимание к деталям", text: "Аккуратные кромки и стыки." },

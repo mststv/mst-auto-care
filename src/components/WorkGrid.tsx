@@ -14,7 +14,7 @@ export function WorkGrid() {
   const g = t.gallery;
   const photos = images.work;
   const [open, setOpen] = useState<number | null>(null);
-  const alt = (i: number) => `MST Auto Care, ${g.eyebrow} ${i + 1}`;
+  const alt = (i: number) => `MST Auto Wraps, ${g.eyebrow} ${i + 1}`;
 
   const close = useCallback(() => setOpen(null), []);
   const step = useCallback((d: number) => setOpen((i) => (i === null ? i : (i + d + photos.length) % photos.length)), [photos.length]);
