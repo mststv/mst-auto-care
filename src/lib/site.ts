@@ -5,7 +5,7 @@
 export const site = {
   name: "MST Auto Care",
   shortName: "MST",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mstautocare.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mstautowraps.com",
   phoneDisplay: "+1 215-833-1552",
   phoneHref: "tel:+12158331552",
   smsNumber: "+12158331552",
