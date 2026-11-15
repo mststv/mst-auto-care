@@ -27,6 +27,10 @@ export function Footer() {
               <InstagramIcon className="size-4" />
             </a>
           </div>
+          <p className="flex gap-4 text-xs text-white/50">
+            <a href="/privacy/" className="hover:text-white">Privacy Policy</a>
+            <a href="/terms/" className="hover:text-white">Terms of Service</a>
+          </p>
           <p className="text-xs text-white/35">
             © {new Date().getFullYear()} MST Auto Wraps. {t.footer.rights}
           </p>
