@@ -28,7 +28,7 @@ export function Footer() {
             </a>
           </div>
           <p className="text-xs text-white/35">
-            © {new Date().getFullYear()} MST Auto Care. {t.footer.rights}
+            © {new Date().getFullYear()} MST Auto Wraps. {t.footer.rights}
           </p>
         </div>
       </div>

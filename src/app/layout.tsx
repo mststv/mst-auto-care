@@ -8,13 +8,13 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter", display: "swap" });
 const oswald = Oswald({ subsets: ["latin", "cyrillic"], weight: ["500", "600", "700"], variable: "--font-oswald", display: "swap" });
 
-const title = "MST Auto Care | Car Wraps & PPF in Bensalem, Philadelphia & the Main Line";
+const title = "MST Auto Wraps | Car Wraps & PPF in Bensalem, Philadelphia & the Main Line";
 const description =
   "Premium vinyl wraps, clear & color PPF, chrome delete and commercial wraps. Private studio in Bensalem, PA, plus mobile service to Newtown, Yardley, Doylestown, New Hope, King of Prussia, the Main Line, Blue Bell, Chestnut Hill, Cherry Hill, Moorestown, Haddonfield and Princeton. Free estimates.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: title, template: "%s | MST Auto Care" },
+  title: { default: title, template: "%s | MST Auto Wraps" },
   description,
   keywords: [
     "car wraps Philadelphia",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   applicationName: site.name,
   alternates: { canonical: "/" },
   openGraph: {
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "MST Auto Care" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "MST Auto Wraps" }],
     type: "website",
     url: site.url,
     siteName: site.name,

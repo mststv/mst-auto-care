@@ -1,5 +1,5 @@
 // Generates the temporary "demo" artwork in /public/images.
-// These are placeholders only. Replace them with real MST Auto Care photos
+// These are placeholders only. Replace them with real MST Auto Wraps photos
 // (see /public/images/README.md). Run: node scripts/generate-placeholders.mjs
 import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";

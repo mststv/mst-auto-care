@@ -3,7 +3,7 @@
  * Update anything here and it flows through the whole site, SEO tags and structured data.
  */
 export const site = {
-  name: "MST Auto Care",
+  name: "MST Auto Wraps",
   shortName: "MST",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mstautowraps.com",
   phoneDisplay: "+1 215-833-1552",

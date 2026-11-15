@@ -1,7 +1,7 @@
 export function Logo({ size = "md" }: { size?: "md" | "lg" }) {
   const big = size === "lg";
   return (
-    <span className="inline-flex flex-col leading-none select-none" aria-label="MST Auto Care">
+    <span className="inline-flex flex-col leading-none select-none" aria-label="MST Auto Wraps">
       <span className="flex items-end gap-1.5">
         <span
           className={`font-display font-bold italic tracking-tight text-white ${big ? "text-6xl md:text-7xl" : "text-[1.7rem]"}`}
@@ -16,7 +16,7 @@ export function Logo({ size = "md" }: { size?: "md" | "lg" }) {
         />
       </span>
       <span className={`font-display font-medium text-red ${big ? "mt-2 text-base tracking-[0.55em]" : "mt-0.5 text-[0.55rem] tracking-[0.42em]"}`}>
-        AUTO CARE
+        AUTO WRAPS
       </span>
     </span>
   );

@@ -66,7 +66,7 @@ export function Header() {
         }`}
       >
         <div className="container-x flex items-center justify-between gap-6">
-          <a href="#top" aria-label="MST Auto Care home" className="shrink-0">
+          <a href="#top" aria-label="MST Auto Wraps home" className="shrink-0">
             <Logo />
           </a>
 

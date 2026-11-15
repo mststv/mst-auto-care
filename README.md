@@ -1,6 +1,6 @@
-# MST Auto Care website
+# MST Auto Wraps website
 
-Premium one-page site for MST Auto Care: vinyl wraps, PPF and vehicle advertising in Pennsylvania and New Jersey.
+Premium one-page site for MST Auto Wraps: vinyl wraps, PPF and vehicle advertising in Pennsylvania and New Jersey.
 Built with Next.js 15 (App Router), TypeScript, Tailwind CSS 4, Framer Motion and Lucide icons.
 English and Russian, switchable from the header.
 
