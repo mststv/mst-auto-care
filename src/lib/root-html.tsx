@@ -27,7 +27,7 @@ export const baseViewport: Viewport = {
 /** Shared <html> shell. Each language has its own root layout so <html lang> is right on every page. */
 export function RootHtml({ lang, fontClass, children }: { lang: "en" | "ru"; fontClass: string; children: React.ReactNode }) {
   return (
-    <html lang={lang} className={fontClass}>
+    <html lang={lang} className={fontClass || undefined}>
       <body>
         <StructuredData />
         {children}
