@@ -29,7 +29,7 @@ export function StructuredData() {
     "@id": businessId,
     name: site.name,
     description:
-      "Clear and color paint protection film (PPF), vinyl car wraps, chrome delete, roof and accent wraps, and commercial vehicle wraps. Private studio in Bensalem, PA. Mobile service available.",
+      "Clear and color paint protection film (PPF), vinyl car wraps, chrome delete, roof and accent wraps, and commercial vehicle wraps. Private studio in Bensalem, PA.",
     url: `${site.url}/`,
     telephone: "+1-215-833-1552",
     ...(site.email && { email: site.email }),

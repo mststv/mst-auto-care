@@ -14,7 +14,7 @@ export function WhyUs() {
       <div aria-hidden className="absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-red/10 blur-[120px]" />
       <div className="container-x">
         <SectionHeading id="why-title" eyebrow={t.why.eyebrow} title={t.why.title} />
-        <ul className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
+        <ul className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
           {t.why.items.map((item, i) => {
             const Icon = icons[i] ?? Gem;
             return (
