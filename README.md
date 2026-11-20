@@ -1,8 +1,8 @@
 # MST Auto Wraps website
 
-Premium one-page site for MST Auto Wraps: vinyl wraps, PPF and vehicle advertising in Pennsylvania and New Jersey.
+Site for MST Auto Wraps: vinyl wraps, PPF and vehicle advertising in Pennsylvania and New Jersey.
 Built with Next.js 15 (App Router), TypeScript, Tailwind CSS 4, Framer Motion and Lucide icons.
-English and Russian, switchable from the header.
+English site plus a Russian home page at /ru/.
 
 ## Run it
 
@@ -12,51 +12,40 @@ npm run dev        # http://localhost:3000
 npm run build && npm start   # production
 ```
 
+## Pages
+
+| URL | What |
+| --- | --- |
+| `/` | Home page (English) |
+| `/ru/` | Home page in Russian, linked to `/` with hreflang |
+| `/ppf/`, `/vinyl-wraps/`, `/commercial-wraps/` | Service pages |
+| `/bensalem-pa/`, `/main-line/`, `/philadelphia/` | Service-area pages |
+| `/privacy/`, `/terms/` | Legal |
+
 ## Where to edit things
 
 | What | File |
 | --- | --- |
-| Phone, Instagram, domain, service area | `src/lib/site.ts` |
-| All text, English and Russian | `src/lib/content.ts` |
-| Images (hero, services, before/after) | `src/lib/images.ts` + `public/images/` (see `public/images/README.md`) |
-| SEO title, description, keywords | `src/app/layout.tsx` |
+| Phone, email, hours, Instagram, ZIP, service towns | `src/lib/site.ts` |
+| Home page text, English and Russian | `src/lib/content.ts` |
+| Service and city page text, titles, descriptions | `src/lib/pages.ts` |
+| Starting prices (used everywhere) | `src/lib/prices.ts` |
+| Photos | `src/lib/images.ts` + `public/images/work/` (run `python3 scripts/optimize-images.py` after adding a photo) |
 | Google structured data (LocalBusiness) | `src/components/StructuredData.tsx` |
-| Social share image | `src/app/opengraph-image.tsx` |
-| Colors and fonts | `src/app/globals.css` (`@theme`) |
 
-## Quote form
+The street address is never published: Google lists the business as a service-area business,
+so the site and structured data show only Bensalem, PA 19020.
 
-The form validates every field and works out of the box:
+## Estimate form
 
-- **No setup (default):** pressing "Request my quote" opens the visitor's messaging app with a
-  text to +1 215-833-1552, already filled in with their name, vehicle and service. They just press send.
-- **Email delivery (recommended):** create a free form at [formspree.io](https://formspree.io),
-  copy its endpoint (looks like `https://formspree.io/f/abcdwxyz`) and set it as
-  `NEXT_PUBLIC_FORMSPREE_ENDPOINT` (in `.env.local` locally, or in your host's environment variables).
-  Submissions then arrive in your inbox, with the customer's email set as reply-to.
-- **Other services** (Basin, Getform, Web3Forms, your own API): any endpoint that accepts a JSON POST works
-  with the same variable. The request body contains `name, phone, email, make, model, year, service, details, vehicle, language`.
+The form works on GitHub Pages without a server:
 
-## Deploy
-
-Easiest: push this folder to a GitHub repo and import it on [vercel.com](https://vercel.com) (free).
-Set `NEXT_PUBLIC_SITE_URL` to your real domain and, optionally, `NEXT_PUBLIC_FORMSPREE_ENDPOINT`.
-
-## Before going live
-
-- Replace the demo images with your own photos (`public/images/README.md`).
-- Set your real domain in `NEXT_PUBLIC_SITE_URL`.
-- Check the Instagram link in `src/lib/site.ts` opens your profile.
-- Optional: once you have a Google Business Profile, add your city/ZIP to `StructuredData.tsx`.
-
-## Regenerating the demo artwork
-
-`node scripts/generate-placeholders.mjs` rewrites the SVG placeholders. Not needed once you use real photos.
+- **Default:** pressing "Send" opens the visitor's messaging app with a text to +1 215-833-1552,
+  already filled in with their name, phone, service and car. They press send.
+- **Email delivery:** create a free form at [formspree.io](https://formspree.io) and put its endpoint
+  (`https://formspree.io/f/xxxxxxx`) in `NEXT_PUBLIC_FORMSPREE_ENDPOINT` in `.github/workflows/deploy.yml`.
 
 ## Hosting (GitHub Pages)
 
-Every push to `main` builds a static copy of the site and publishes it to GitHub Pages
-(`.github/workflows/deploy.yml`). Live URL: https://mststv.github.io/mst-auto-care/
-
-When a custom domain is connected, change `NEXT_PUBLIC_BASE_PATH` to an empty string and
-`NEXT_PUBLIC_SITE_URL` to the new domain in the workflow.
+Every push to `main` builds a static copy of the site (`STATIC_EXPORT=1`) and publishes it to
+GitHub Pages at https://mstautowraps.com (`.github/workflows/deploy.yml`).

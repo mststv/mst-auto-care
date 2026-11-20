@@ -1,22 +1,25 @@
 "use client";
 
-import { Clock, MapPin, MessageSquare, Phone, Star } from "lucide-react";
+import { Clock, Mail, MapPin, MessageSquare, Phone } from "lucide-react";
 import { Eyebrow } from "./SectionHeading";
 import { Reveal } from "./Reveal";
 import { ButtonLink } from "./Button";
 import { InstagramIcon } from "./InstagramIcon";
 import { useLocale } from "@/lib/i18n";
 import { site } from "@/lib/site";
+import { cityPages } from "@/lib/pages";
+import { hoursText } from "@/lib/hours";
 
 export function Contact() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const c = t.contact;
   const info = [
     { Icon: MapPin, label: c.location, value: c.areaValue },
-    { Icon: Clock, label: c.hours, value: c.hoursValue },
+    { Icon: Clock, label: c.hours, value: hoursText(locale) ?? c.hoursValue },
     { Icon: Phone, label: c.phone, value: site.phoneDisplay, href: site.phoneHref },
+    ...(site.email ? [{ Icon: Mail, label: "Email", value: site.email, href: `mailto:${site.email}` }] : []),
     { Icon: InstagramIcon, label: c.social, value: site.instagramHandle, href: site.instagramUrl, external: true },
-    { Icon: Star, label: c.maps, value: c.mapsValue, href: site.mapsUrl, external: true },
+    { Icon: MapPin, label: c.maps, value: c.mapsValue, href: site.mapsUrl, external: true },
   ];
 
   return (
@@ -52,8 +55,8 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <dl className="mt-20 grid gap-px border-y border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
-            {info.map(({ Icon, label, value, href, external }) => (
+          <dl className={`mt-20 grid gap-px border-y border-line bg-line sm:grid-cols-2 ${info.length > 5 ? "lg:grid-cols-3" : "lg:grid-cols-5"}`}>
+            {info.map(({ Icon, label, value, href, external }: { Icon: React.ComponentType<{ className?: string }>; label: string; value: string; href?: string; external?: boolean }) => (
               <div key={label} className="flex items-start gap-4 bg-ink p-6 md:p-7">
                 <Icon className="mt-0.5 size-5 shrink-0 text-red" aria-hidden />
                 <div className="min-w-0">
@@ -74,13 +77,23 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-16 text-center">
+          <div id="areas" className="mt-16 scroll-mt-24 text-center">
             <h3 className="font-display text-2xl font-bold uppercase tracking-tight md:text-3xl">{c.areasTitle}</h3>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-white/55 md:text-base">{c.areasIntro}</p>
             <ul className="mx-auto mt-6 flex max-w-4xl flex-wrap justify-center gap-2">
               {[...site.areasPA.map((t) => `${t}, PA`), ...site.areasNJ.map((t) => `${t}, NJ`)].map((t) => (
                 <li key={t} className="border border-line bg-ink/60 px-3 py-1.5 text-xs text-white/75 md:text-sm">
                   {t}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 font-display text-xs uppercase tracking-[0.3em] text-white/45">{c.areaPages}</p>
+            <ul className="mt-4 flex flex-wrap justify-center gap-3">
+              {cityPages.map((p) => (
+                <li key={p.slug}>
+                  <a href={`/${p.slug}/`} className="inline-block border border-white/25 px-4 py-2 text-sm transition-colors hover:border-red hover:bg-red">
+                    {p.nav}
+                  </a>
                 </li>
               ))}
             </ul>
