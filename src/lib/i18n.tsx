@@ -1,35 +1,18 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
 import { dictionaries, type Dictionary, type Locale } from "./content";
 
-type Ctx = { locale: Locale; t: Dictionary; setLocale: (l: Locale) => void };
+type Ctx = { locale: Locale; t: Dictionary; home: string };
 
 const LocaleContext = createContext<Ctx | null>(null);
-const KEY = "mst-locale";
 
-export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
-
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem(KEY);
-      if (saved === "en" || saved === "ru") setLocaleState(saved);
-    } catch {}
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.lang = locale;
-  }, [locale]);
-
-  const setLocale = (l: Locale) => {
-    setLocaleState(l);
-    try {
-      localStorage.setItem(KEY, l);
-    } catch {}
-  };
-
-  return <LocaleContext.Provider value={{ locale, t: dictionaries[locale], setLocale }}>{children}</LocaleContext.Provider>;
+/**
+ * The language is decided by the URL: "/" is English, "/ru/" is Russian.
+ * Each language is a separate, crawlable page linked with hreflang.
+ */
+export function LocaleProvider({ locale = "en", children }: { locale?: Locale; children: ReactNode }) {
+  return <LocaleContext.Provider value={{ locale, t: dictionaries[locale], home: locale === "ru" ? "/ru/" : "/" }}>{children}</LocaleContext.Provider>;
 }
 
 export function useLocale() {

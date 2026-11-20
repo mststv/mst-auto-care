@@ -1,11 +1,34 @@
-import Image, { type ImageProps } from "next/image";
-import { isPlaceholder } from "@/lib/images";
+import type { ComponentProps } from "react";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-/** next/image wrapper: demo SVGs skip optimization; adds the base path for sub-path hosting (GitHub Pages). */
-export function SiteImage({ alt, src, ...props }: ImageProps) {
-  const s = typeof src === "string" && src.startsWith("/") ? `${basePath}${src}` : src;
-  const raw = typeof src === "string" ? src : "";
-  return <Image alt={alt} src={s} {...props} unoptimized={props.unoptimized ?? isPlaceholder(raw)} />;
+/**
+ * Responsive WebP image. `src` is the photo path WITHOUT extension, e.g. "/images/work/ppf-install";
+ * the -640.webp and -1280.webp files are made by `python3 scripts/optimize-images.py`.
+ * Lazy-loaded by default; pass priority for an above-the-fold image.
+ */
+export function SiteImage({
+  src,
+  alt,
+  width,
+  height,
+  sizes = "100vw",
+  priority = false,
+  className,
+  ...rest
+}: Omit<ComponentProps<"img">, "src" | "srcSet"> & { src: string; alt: string; width: number; height: number; priority?: boolean }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={`${src}-1280.webp`}
+      srcSet={`${src}-640.webp 640w, ${src}-1280.webp ${Math.min(width, 1280)}w`}
+      sizes={sizes}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      fetchPriority={priority ? "high" : undefined}
+      className={className}
+      {...rest}
+    />
+  );
 }

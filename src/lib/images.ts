@@ -1,27 +1,19 @@
 /**
- * All site imagery lives here. To use real photos:
- *   1. Drop your files into /public/images/... (JPG or WebP, ~2400px wide for the hero, ~1600px for others)
- *   2. Change the path below. Nothing else needs to be edited.
- * Paths ending in .svg are the temporary demo artwork.
+ * Site photos. Paths are WITHOUT extension: each photo has -640.webp and -1280.webp versions
+ * in /public/images/work, made by `python3 scripts/optimize-images.py` from the original JPG.
+ * `w`/`h` are the original pixel size, `alt` describes the photo for Google and screen readers.
  */
-export const images = {
-  hero: { src: "/images/hero/hero.svg", alt: "Satin black vinyl-wrapped sports car in a dark studio" },
-  services: {
-    colorChange: "/images/work/wrap-matte-black.jpg",
-    chromeDelete: "/images/services/chrome-delete.svg",
-    roofWrap: "/images/services/roof-wrap.svg",
-    accentWrap: "/images/services/accent-wrap.svg",
-    ppf: "/images/work/ppf-install.jpg",
-    commercialWrap: "/images/services/commercial-wrap.svg",
-  },
-  /**
-   * Real MST project photos ("Our Work" grid). Add new photos to /public/images/work and list them here.
-   * `w`/`h` are the image's pixel size.
-   */
-  work: [
-    { src: "/images/work/wrap-matte-black.jpg", w: 1081, h: 1600 },
-    { src: "/images/work/ppf-install.jpg", w: 576, h: 490 },
-  ],
-} as const;
+export type Photo = { src: string; w: number; h: number; alt: string };
 
-export const isPlaceholder = (src: string) => src.endsWith(".svg");
+export const photos = {
+  matteBlack: { src: "/images/work/wrap-matte-black", w: 1081, h: 1600, alt: "Car wrapped in matte black vinyl" },
+  ppfInstall: { src: "/images/work/ppf-install", w: 576, h: 490, alt: "Installer applying clear paint protection film to a black car's fender" },
+  blueFront: { src: "/images/work/wrap-blue-front", w: 1320, h: 1464, alt: "BMW 5 Series wrapped in satin blue vinyl, front view in the studio" },
+  blueDetail: { src: "/images/work/wrap-blue-detail", w: 903, h: 1600, alt: "Close-up of a satin blue vinyl wrap on a BMW" },
+} satisfies Record<string, Photo>;
+
+export const images = {
+  services: { wraps: photos.matteBlack, ppf: photos.ppfInstall },
+  /** "Our Work" grid on the home page. */
+  work: [photos.matteBlack, photos.ppfInstall],
+};

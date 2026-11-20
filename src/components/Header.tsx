@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Menu, MessageSquare, Phone, X } from "lucide-react";
 import { Logo } from "./Logo";
 import { ButtonLink } from "./Button";
@@ -9,21 +8,28 @@ import { useLocale } from "@/lib/i18n";
 import { site } from "@/lib/site";
 import { InstagramIcon } from "./InstagramIcon";
 
+/** Language switch: links between the English home page (/) and the Russian one (/ru/). */
 export function LangToggle({ className = "" }: { className?: string }) {
-  const { locale, setLocale } = useLocale();
+  const { locale } = useLocale();
+  const langs = [
+    { l: "en", href: "/", label: "English" },
+    { l: "ru", href: "/ru/", label: "Русский" },
+  ] as const;
   return (
     <div className={`flex items-center font-display text-xs font-medium tracking-[0.2em] ${className}`} role="group" aria-label="Language">
-      {(["en", "ru"] as const).map((l, i) => (
+      {langs.map(({ l, href, label }, i) => (
         <span key={l} className="flex items-center">
           {i > 0 && <span aria-hidden className="mx-2 h-3 w-px bg-white/25" />}
-          <button
-            type="button"
-            onClick={() => setLocale(l)}
-            aria-pressed={locale === l}
+          <a
+            href={href}
+            hrefLang={l}
+            lang={l}
+            aria-label={label}
+            aria-current={locale === l ? "true" : undefined}
             className={`uppercase transition-colors ${locale === l ? "text-white" : "text-white/40 hover:text-white/80"}`}
           >
             {l}
-          </button>
+          </a>
         </span>
       ))}
     </div>
@@ -31,7 +37,7 @@ export function LangToggle({ className = "" }: { className?: string }) {
 }
 
 export function Header() {
-  const { t } = useLocale();
+  const { t, home } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -50,9 +56,11 @@ export function Header() {
   }, [open]);
 
   const links = [
-    { href: "#services", label: t.nav.services },
-    { href: "#why", label: t.nav.why },
-    { href: "#contact", label: t.nav.contact },
+    { href: "/vinyl-wraps/", label: t.nav.wraps },
+    { href: "/ppf/", label: t.nav.ppf },
+    { href: "/commercial-wraps/", label: t.nav.ads },
+    { href: `${home}#areas`, label: t.nav.areas },
+    { href: `${home}#contact`, label: t.nav.contact },
   ];
 
   return (
@@ -66,12 +74,12 @@ export function Header() {
         }`}
       >
         <div className="container-x flex items-center justify-between gap-6">
-          <a href="#top" aria-label="MST Auto Wraps home" className="shrink-0">
+          <a href={home} aria-label="MST Auto Wraps home" className="shrink-0">
             <Logo />
           </a>
 
           <nav aria-label="Main" className="hidden lg:block">
-            <ul className="flex items-center gap-10">
+            <ul className="flex items-center gap-8 xl:gap-10">
               {links.map((l) => (
                 <li key={l.href}>
                   <a
@@ -121,18 +129,13 @@ export function Header() {
         </div>
       </header>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
+      {open && (
+          <div
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
             aria-label="Menu"
-            className="fixed inset-0 z-[60] flex flex-col bg-ink/98 backdrop-blur-xl lg:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            className="animate-fade-in fixed inset-0 z-[60] flex flex-col bg-ink/98 backdrop-blur-xl lg:hidden"
           >
             <div className="container-x flex items-center justify-between py-5">
               <Logo />
@@ -143,7 +146,7 @@ export function Header() {
             <nav aria-label="Mobile" className="container-x mt-8 flex-1">
               <ul className="space-y-2">
                 {links.map((l, i) => (
-                  <motion.li key={l.href} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 * i + 0.1 }}>
+                  <li key={l.href}>
                     <a
                       href={l.href}
                       onClick={() => setOpen(false)}
@@ -152,7 +155,7 @@ export function Header() {
                       <span className="text-sm font-medium text-red">0{i + 1}</span>
                       {l.label}
                     </a>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </nav>
@@ -167,9 +170,8 @@ export function Header() {
                 </ButtonLink>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </>
   );
 }

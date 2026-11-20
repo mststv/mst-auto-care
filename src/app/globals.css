@@ -77,19 +77,31 @@ body {
   100% { transform: translateX(320%) skewX(-20deg); }
 }
 
-@keyframes slow-zoom {
-  from { transform: scale(1.08); }
-  to { transform: scale(1); }
+/* Scroll reveal (see components/Reveal.tsx). Hidden only when JS runs and motion is allowed. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+  }
+  [data-reveal][data-shown] {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-@keyframes scroll-line {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  51% { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
+/* Hero entrance: pure CSS, so the headline paints immediately without waiting for JavaScript (better LCP). */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
 }
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@utility animate-fade-up {
+  animation: fade-up 0.9s var(--ease-out-expo) both;
+}
+@utility animate-fade-in {
+  animation: fade-in 0.3s ease-out both;
 }

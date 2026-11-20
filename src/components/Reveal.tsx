@@ -1,19 +1,35 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
-export function Reveal({ children, delay = 0, y = 28, className, as = "div" }: { children: ReactNode; delay?: number; y?: number; className?: string; as?: "div" | "li" }) {
-  const reduce = useReducedMotion();
-  const Tag = as === "li" ? motion.li : motion.div;
+/**
+ * Fades content in when it scrolls into view. CSS-only animation driven by one IntersectionObserver,
+ * so it adds almost no JavaScript. Without JS (or with reduced motion) content is simply visible.
+ */
+export function Reveal({ children, delay = 0, className = "", as = "div" }: { children: ReactNode; delay?: number; y?: number; className?: string; as?: "div" | "li" }) {
+  const ref = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (!("IntersectionObserver" in window)) {
+      el.dataset.shown = "";
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          el.dataset.shown = "";
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -60px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  const Tag = as;
   return (
-    <Tag
-      className={className}
-      initial={reduce ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
-    >
+    <Tag ref={ref as never} data-reveal="" className={className} style={delay ? { transitionDelay: `${delay}s` } : undefined}>
       {children}
     </Tag>
   );
