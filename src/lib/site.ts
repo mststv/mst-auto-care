@@ -9,8 +9,8 @@ export const site = {
   phoneDisplay: "+1 215-833-1552",
   phoneHref: "tel:+12158331552",
   smsNumber: "+12158331552",
-  instagramHandle: "@mst_auto_care",
-  instagramUrl: "https://www.instagram.com/mst_auto_care/",
+  instagramHandle: "@mst_auto_wraps",
+  instagramUrl: "https://www.instagram.com/mst_auto_wraps/",
   facebookUrl: "https://www.facebook.com/mstautocarepa",
   mapsUrl: "https://maps.app.goo.gl/dqxzZZShDdT1wArY7",
   /** Google rating shown on the site. The number of reviews is intentionally NOT shown. */
