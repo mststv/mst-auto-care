@@ -10,17 +10,6 @@ type Key = keyof typeof startingPrices;
 
 const categories: { id: "wraps" | "ppf" | "ads"; href: string; img: Photo | null; items: { key: Key; Icon: LucideIcon }[] }[] = [
   {
-    id: "wraps",
-    href: "/vinyl-wraps/",
-    img: images.services.wraps,
-    items: [
-      { key: "colorChange", Icon: Paintbrush },
-      { key: "chromeDelete", Icon: SquareDashed },
-      { key: "roofWrap", Icon: CarFront },
-      { key: "accentWrap", Icon: Layers },
-    ],
-  },
-  {
     id: "ppf",
     href: "/ppf/",
     img: images.services.ppf,
@@ -29,6 +18,17 @@ const categories: { id: "wraps" | "ppf" | "ads"; href: string; img: Photo | null
       { key: "ppfFront", Icon: ShieldHalf },
       { key: "ppfFull", Icon: ShieldCheck },
       { key: "ppfColor", Icon: Palette },
+    ],
+  },
+  {
+    id: "wraps",
+    href: "/vinyl-wraps/",
+    img: images.services.wraps,
+    items: [
+      { key: "colorChange", Icon: Paintbrush },
+      { key: "chromeDelete", Icon: SquareDashed },
+      { key: "roofWrap", Icon: CarFront },
+      { key: "accentWrap", Icon: Layers },
     ],
   },
   {
