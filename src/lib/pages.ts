@@ -175,10 +175,10 @@ export const cityPages: CityPageData[] = [
   {
     slug: "bensalem-pa",
     nav: "Bensalem & Bucks County",
-    title: "Car Wraps & PPF in Bensalem & Bucks County | MST Auto Wraps",
+    title: "PPF & Car Wraps in Bensalem & Bucks County | MST Auto Wraps",
     description:
-      "Vinyl wraps, PPF and commercial wraps from our private studio in Bensalem, PA. Mobile service across Bucks County. Call or text 215-833-1552.",
-    h1: "Car Wraps & PPF in Bensalem and Bucks County",
+      "PPF, vinyl wraps and commercial wraps from our private studio in Bensalem, PA. Mobile service across Bucks County. Call or text 215-833-1552.",
+    h1: "PPF & Car Wraps in Bensalem and Bucks County",
     eyebrow: "Bensalem, PA 19020",
     intro: [
       "MST Auto Wraps is based in Bensalem. Our private studio is here, so most Bucks County cars are wrapped indoors. Mobile service is available too.",
@@ -197,13 +197,13 @@ export const cityPages: CityPageData[] = [
   {
     slug: "main-line",
     nav: "Main Line & King of Prussia",
-    title: "Car Wraps & PPF on the Main Line, PA | MST Auto Wraps",
+    title: "PPF & Car Wraps on the Main Line, PA | MST Auto Wraps",
     description:
-      "Mobile vinyl wraps and PPF for King of Prussia, Bryn Mawr, Villanova, Wayne and Gladwyne. Partial PPF from $150. Call or text 215-833-1552.",
-    h1: "Car Wraps & PPF on the Main Line",
+      "Mobile PPF and vinyl wraps for King of Prussia, Bryn Mawr, Villanova, Wayne and Gladwyne. Partial PPF from $150. Call or text 215-833-1552.",
+    h1: "PPF & Car Wraps on the Main Line",
     eyebrow: "King of Prussia · Bryn Mawr · Wayne",
     intro: [
-      "We wrap and protect cars across the Main Line and Montgomery County, from King of Prussia to Gladwyne.",
+      "We protect and wrap cars across the Main Line and Montgomery County, from King of Prussia to Gladwyne.",
       "Mobile service comes to your home or office, or you can bring the car to our private studio in Bensalem.",
     ],
     towns: ["King of Prussia", "Wayne", "Villanova", "Bryn Mawr", "Gladwyne", "Blue Bell", "Ambler"],
@@ -219,10 +219,10 @@ export const cityPages: CityPageData[] = [
   {
     slug: "philadelphia",
     nav: "Philadelphia",
-    title: "Car Wraps & PPF in Philadelphia, PA | MST Auto Wraps",
+    title: "PPF & Car Wraps in Philadelphia, PA | MST Auto Wraps",
     description:
-      "Vinyl car wraps, clear & color PPF and commercial wraps for Philadelphia drivers. Studio in nearby Bensalem or mobile service. Call 215-833-1552.",
-    h1: "Car Wraps & PPF in Philadelphia",
+      "Clear & color PPF, vinyl car wraps and commercial wraps for Philadelphia drivers. Studio in nearby Bensalem or mobile service. Call 215-833-1552.",
+    h1: "PPF & Car Wraps in Philadelphia",
     eyebrow: "Philadelphia, PA",
     intro: [
       "Our studio in Bensalem is right next to Northeast Philadelphia, so city drivers can drop their car off or book mobile service.",

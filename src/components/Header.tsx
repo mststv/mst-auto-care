@@ -56,8 +56,8 @@ export function Header() {
   }, [open]);
 
   const links = [
-    { href: "/vinyl-wraps/", label: t.nav.wraps },
     { href: "/ppf/", label: t.nav.ppf },
+    { href: "/vinyl-wraps/", label: t.nav.wraps },
     { href: "/commercial-wraps/", label: t.nav.ads },
     { href: `${home}#areas`, label: t.nav.areas },
     { href: `${home}#contact`, label: t.nav.contact },

@@ -1,10 +1,9 @@
-import { Inter, Oswald } from "next/font/google";
-
 /**
- * One font setup shared by both root layouts (English and Russian).
- * Declared once so the build fetches each Google font only once.
+ * Self-hosted fonts (Fontsource packages), bundled at build time.
+ * No Google Fonts request during the build, so the GitHub Pages deploy cannot fail on a font download.
+ * Each @font-face has a unicode-range, so browsers download only the Latin or Cyrillic file a page needs.
  */
-const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter", display: "swap" });
-const oswald = Oswald({ subsets: ["latin", "cyrillic"], weight: ["500", "600", "700"], variable: "--font-oswald", display: "swap" });
+import "@fontsource-variable/inter";
+import "@fontsource-variable/oswald";
 
-export const fontClass = `${inter.variable} ${oswald.variable}`;
+export const fontClass = "";
