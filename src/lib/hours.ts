@@ -16,7 +16,7 @@ export function hoursText(locale: "en" | "ru" = "en"): string | null {
   if (!site.hours) return null;
   return site.hours
     .map(({ days, opens, closes }) => {
-      const d = days.length > 2 ? `${names[locale][days[0]]}–${names[locale][days[days.length - 1]]}` : days.map((x) => names[locale][x]).join(", ");
+      const d = days.length === 7 ? (locale === "ru" ? "Ежедневно" : "Daily") : days.length > 2 ? `${names[locale][days[0]]}–${names[locale][days[days.length - 1]]}` : days.map((x) => names[locale][x]).join(", ");
       return `${d} ${time(opens, locale)}–${time(closes, locale)}`;
     })
     .join(" · ");

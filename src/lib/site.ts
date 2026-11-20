@@ -18,11 +18,11 @@ export const site = {
   /** Public email. null = not shown anywhere (site, schema). */
   email: null as string | null,
   /**
-   * Opening hours, must match the Google Business Profile.
+   * Opening hours, must match the Google Business Profile (checked 2026-11-20: every day 5 AM–10 PM).
    * null = "By appointment" and no openingHours in structured data.
    * Example: [{ days: ["Mo","Tu","We","Th","Fr","Sa"], opens: "09:00", closes: "19:00" }]
    */
-  hours: null as { days: ("Mo" | "Tu" | "We" | "Th" | "Fr" | "Sa" | "Su")[]; opens: string; closes: string }[] | null,
+  hours: [{ days: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"], opens: "05:00", closes: "22:00" }] as { days: ("Mo" | "Tu" | "We" | "Th" | "Fr" | "Sa" | "Su")[]; opens: string; closes: string }[] | null,
   /** NAP: city/state/ZIP only. The street address is never published (service-area business on Google). */
   address: { locality: "Bensalem", region: "PA", postalCode: "19020", country: "US" },
   region: "Pennsylvania / New Jersey",
