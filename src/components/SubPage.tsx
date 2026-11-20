@@ -10,7 +10,7 @@ import { fmtPrice } from "./Services";
 import { LocaleProvider } from "@/lib/i18n";
 import { site } from "@/lib/site";
 import { startingPrices } from "@/lib/prices";
-import { cityPages, servicePages, type CityPageData, type Faq, type ServicePageData } from "@/lib/pages";
+import { servicePages, type CityPageData, type Faq, type ServicePageData } from "@/lib/pages";
 
 function Crumbs({ name, slug }: { name: string; slug: string }) {
   return (
@@ -147,7 +147,6 @@ function LinkList({ title, links }: { title: string; links: { href: string; labe
   );
 }
 
-const areaLinks = cityPages.map((c) => ({ href: `/${c.slug}/`, label: c.nav }));
 const serviceLinks = servicePages.map((s) => ({ href: `/${s.slug}/`, label: s.nav }));
 
 export function ServicePageView({ p }: { p: ServicePageData }) {
@@ -185,7 +184,6 @@ export function ServicePageView({ p }: { p: ServicePageData }) {
         ))}
 
         <Faqs faqs={p.faqs} />
-        <LinkList title="Service areas" links={areaLinks} />
         <LinkList title="Other services" links={serviceLinks.filter((l) => l.href !== `/${p.slug}/`)} />
       </div>
       <QuoteForm />
