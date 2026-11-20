@@ -7,8 +7,14 @@ import { ButtonLink } from "./Button";
 import { InstagramIcon } from "./InstagramIcon";
 import { useLocale } from "@/lib/i18n";
 import { site } from "@/lib/site";
-import { cityPages } from "@/lib/pages";
 import { hoursText } from "@/lib/hours";
+
+/** Towns that have their own page link to it. */
+const areaPage: Record<string, string> = {
+  "Bensalem, PA": "/bensalem-pa/",
+  "Philadelphia, PA": "/philadelphia/",
+  "King of Prussia, PA": "/main-line/",
+};
 
 export function Contact() {
   const { t, locale } = useLocale();
@@ -79,23 +85,21 @@ export function Contact() {
         <Reveal delay={0.15}>
           <div id="areas" className="mt-16 scroll-mt-24 text-center">
             <h3 className="font-display text-2xl font-bold uppercase tracking-tight md:text-3xl">{c.areasTitle}</h3>
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-white/55 md:text-base">{c.areasIntro}</p>
             <ul className="mx-auto mt-6 flex max-w-4xl flex-wrap justify-center gap-2">
-              {[...site.areasPA.map((t) => `${t}, PA`), ...site.areasNJ.map((t) => `${t}, NJ`)].map((t) => (
-                <li key={t} className="border border-line bg-ink/60 px-3 py-1.5 text-xs text-white/75 md:text-sm">
-                  {t}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 font-display text-xs uppercase tracking-[0.3em] text-white/45">{c.areaPages}</p>
-            <ul className="mt-4 flex flex-wrap justify-center gap-3">
-              {cityPages.map((p) => (
-                <li key={p.slug}>
-                  <a href={`/${p.slug}/`} className="inline-block border border-white/25 px-4 py-2 text-sm transition-colors hover:border-red hover:bg-red">
-                    {p.nav}
-                  </a>
-                </li>
-              ))}
+              {[...site.areasPA.map((t) => `${t}, PA`), ...site.areasNJ.map((t) => `${t}, NJ`)].map((t) => {
+                const page = areaPage[t];
+                return (
+                  <li key={t}>
+                    {page ? (
+                      <a href={page} className="inline-block border border-white/30 bg-ink/60 px-3 py-1.5 text-xs text-white transition-colors hover:border-red hover:bg-red md:text-sm">
+                        {t}
+                      </a>
+                    ) : (
+                      <span className="inline-block border border-line bg-ink/60 px-3 py-1.5 text-xs text-white/75 md:text-sm">{t}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </Reveal>

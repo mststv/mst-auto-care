@@ -21,7 +21,7 @@ export type Dictionary = {
     submit: string; sending: string; successTitle: string; successText: string; smsTitle: string; smsText: string; error: string; required: string; invalidPhone: string; privacy: string; again: string;
     serviceOptions: string[];
   };
-  contact: { eyebrow: string; title: string; text: string; call: string; sms: string; instagram: string; quote: string; location: string; areaValue: string; areasTitle: string; areasIntro: string; areaPages: string; hours: string; hoursValue: string; maps: string; mapsValue: string; phone: string; languages: string; languagesValue: string; social: string };
+  contact: { eyebrow: string; title: string; text: string; call: string; sms: string; instagram: string; quote: string; location: string; areaValue: string; areasTitle: string; areaPages: string; hours: string; hoursValue: string; maps: string; mapsValue: string; phone: string; languages: string; languagesValue: string; social: string };
   footer: { tagline: string; rights: string; languages: string };
 };
 
@@ -31,7 +31,7 @@ const en: Dictionary = {
     eyebrow: "Vinyl Wraps · PPF · PA / NJ",
     h1: "Car Wraps & Paint Protection Film in Bensalem, PA",
     title: ["TRANSFORM", "YOUR RIDE."],
-    subtitle: "Vinyl wraps, clear & color PPF and commercial wraps. Private studio in Bensalem, mobile service across Bucks County, Philadelphia, the Main Line and South Jersey.",
+    subtitle: "Vinyl wraps, clear & color PPF and commercial wraps. Private studio in Bensalem, PA. Mobile service available.",
     ctaCall: "Call",
     ctaText: "Text Us",
     ctaQuote: "Free Estimates",
@@ -74,7 +74,7 @@ const en: Dictionary = {
       { title: "Professional Installation", text: "Careful prep, clean finish." },
       { title: "Personalized Service", text: "We help you choose." },
       { title: "Premium Materials", text: "Quality vinyl and protection films." },
-      { title: "Mobile Service", text: "We come to you in Bucks County, Philadelphia, the Main Line and South Jersey." },
+      { title: "Mobile Service", text: "We come to you." },
     ],
   },
   quote: {
@@ -105,10 +105,9 @@ const en: Dictionary = {
     sms: "Text Us",
     instagram: "Instagram",
     quote: "Free Estimates",
-    location: "Service Area",
+    location: "Location",
     areaValue: "Private studio in Bensalem, PA. Mobile service available.",
     areasTitle: "Areas we serve",
-    areasIntro: "We come to you in Bucks County, the Main Line, Montgomery County, Philadelphia and South Jersey, including:",
     areaPages: "Service areas",
     hours: "Hours",
     hoursValue: "By appointment",
@@ -128,7 +127,7 @@ const ru: Dictionary = {
     eyebrow: "Оклейка винилом · PPF · PA / NJ",
     h1: "Оклейка авто винилом и защитной плёнкой (PPF) в Bensalem, PA",
     title: ["ПРЕОБРАЗИ", "СВОЁ АВТО."],
-    subtitle: "Винил, прозрачный и цветной PPF, рекламная оклейка. Закрытая студия в Bensalem, выезд по Bucks County, Филадельфии, Main Line и South Jersey.",
+    subtitle: "Винил, прозрачный и цветной PPF, рекламная оклейка. Закрытая студия в Bensalem, PA. Возможен выезд.",
     ctaCall: "Позвонить",
     ctaText: "Написать SMS",
     ctaQuote: "Бесплатная оценка",
@@ -171,7 +170,7 @@ const ru: Dictionary = {
       { title: "Профессиональная установка", text: "Подготовка и чистый результат." },
       { title: "Индивидуальный подход", text: "Поможем с выбором." },
       { title: "Качественные материалы", text: "Качественный винил и защитные плёнки." },
-      { title: "Выездной сервис", text: "Приедем к вам в Bucks County, Филадельфии, Main Line и South Jersey." },
+      { title: "Выездной сервис", text: "Приедем к вам." },
     ],
   },
   quote: {
@@ -202,10 +201,9 @@ const ru: Dictionary = {
     sms: "Написать SMS",
     instagram: "Instagram",
     quote: "Бесплатная оценка",
-    location: "Зона обслуживания",
+    location: "Где мы",
     areaValue: "Закрытая студия в Bensalem, PA. Возможен выезд.",
     areasTitle: "Где мы работаем",
-    areasIntro: "Приезжаем к вам в Bucks County, Main Line, Montgomery County, Филадельфию и South Jersey, в том числе:",
     areaPages: "Районы обслуживания",
     hours: "Часы работы",
     hoursValue: "По записи",

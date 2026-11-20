@@ -6,7 +6,7 @@ import { Logo } from "./Logo";
 import { InstagramIcon } from "./InstagramIcon";
 import { useLocale } from "@/lib/i18n";
 import { site } from "@/lib/site";
-import { cityPages, servicePages } from "@/lib/pages";
+import { servicePages } from "@/lib/pages";
 
 export function Footer() {
   const { t, home } = useLocale();
@@ -14,7 +14,7 @@ export function Footer() {
   const link = "text-sm text-white/70 transition-colors hover:text-white";
   return (
     <footer className="border-t border-line bg-ink">
-      <div className="container-x grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container-x grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-3">
         <div>
           <a href={home} aria-label="MST Auto Wraps home">
             <Logo />
@@ -39,16 +39,6 @@ export function Footer() {
           <p className={col}>{t.nav.services}</p>
           <ul className="mt-4 space-y-2">
             {servicePages.map((p) => (
-              <li key={p.slug}>
-                <a href={`/${p.slug}/`} className={link}>{p.nav}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <nav aria-label={t.contact.areaPages}>
-          <p className={col}>{t.contact.areaPages}</p>
-          <ul className="mt-4 space-y-2">
-            {cityPages.map((p) => (
               <li key={p.slug}>
                 <a href={`/${p.slug}/`} className={link}>{p.nav}</a>
               </li>

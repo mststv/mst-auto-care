@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronRight, MapPin, MessageSquare, Phone, Star } from "lucide-react";
+import { ChevronRight, MessageSquare, Phone, Star } from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { QuoteForm } from "./QuoteForm";
@@ -71,8 +71,6 @@ function Intro({ eyebrow, h1, intro, slug, crumb }: { eyebrow: string; h1: strin
       </div>
       <p className="mt-6 flex flex-wrap items-center gap-2 text-sm text-white/65">
         <Star className="size-4 fill-[#fbbc04] text-[#fbbc04]" aria-hidden /> Rated 5.0 on Google
-        <span className="mx-2 text-white/25">|</span>
-        <MapPin className="size-4 text-red" aria-hidden /> Private studio in Bensalem, PA. Mobile service available.
       </p>
     </>
   );
@@ -249,7 +247,6 @@ export function CityPageView({ p }: { p: CityPageData }) {
           </ul>
         </section>
 
-        <LinkList title="Other service areas" links={areaLinks.filter((l) => l.href !== `/${p.slug}/`)} />
       </div>
       <QuoteForm />
       <JsonLd
