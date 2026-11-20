@@ -27,7 +27,7 @@ export default function TermsPage() {
       </p>
       <h2>Appointments</h2>
       <p>
-        Work is done at our private studio in {site.baseCity} or on site with our mobile service. The studio address is
+        Work is done at our private studio in {site.baseCity}. The studio address is
         shared once your appointment is booked.
       </p>
       <h2>Website content</h2>

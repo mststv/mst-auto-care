@@ -29,7 +29,7 @@ export const site = {
   regionShort: "PA / NJ",
   languages: ["English", "Russian"],
   baseCity: "Bensalem, PA",
-  /** Towns we serve (mobile service). Shown on the site and in Google structured data. */
+  /** Towns we serve. Shown on the site and in Google structured data. */
   areasPA: ["Bensalem", "Newtown", "Yardley", "Doylestown", "New Hope", "Huntingdon Valley", "Blue Bell", "Ambler", "Chestnut Hill", "King of Prussia", "Bryn Mawr", "Villanova", "Wayne", "Gladwyne", "Philadelphia"],
   areasNJ: ["Cherry Hill", "Moorestown", "Haddonfield", "Princeton"],
   areaServed: ["Philadelphia, PA", "Bucks County, PA", "Montgomery County, PA", "Main Line, PA", "Pennsylvania", "New Jersey"],
