@@ -36,7 +36,7 @@ export const servicePages: ServicePageData[] = [
     eyebrow: "Clear bra · Color PPF",
     intro: [
       "Paint protection film is a clear (or colored) urethane film installed over your factory paint. It takes the rock chips, road debris and light scratches so your paint does not.",
-      "We install PPF in our private studio in Bensalem, PA, and offer mobile service across Bucks County, Philadelphia, the Main Line and South Jersey.",
+      "We install PPF in our private studio in Bensalem, PA, or come to you.",
     ],
     image: { src: "/images/work/ppf-install", w: 576, h: 490, alt: "Installer squeegeeing clear paint protection film onto a black car's front fender" },
     offerTitle: "PPF packages and starting prices",
@@ -65,7 +65,7 @@ export const servicePages: ServicePageData[] = [
     ],
     faqs: [
       { q: "How much does PPF cost?", a: "Partial PPF starts at $150, full front PPF at $1,500, full body clear PPF at $3,000 and full color PPF at $3,500. The final price depends on the car and the coverage." },
-      { q: "Do you come to me?", a: "Yes. Mobile service is available across Bucks County, Philadelphia, the Main Line, Montgomery County and South Jersey. We also work in our private studio in Bensalem, PA." },
+      { q: "Do you come to me?", a: "Yes. Mobile service is available. We also work in our private studio in Bensalem, PA." },
       { q: "Is PPF the same as a clear bra?", a: "Yes. \"Clear bra\" is the older name for clear paint protection film on the front of the car." },
     ],
     schemaName: "Paint Protection Film (PPF) Installation",
@@ -80,7 +80,7 @@ export const servicePages: ServicePageData[] = [
     eyebrow: "Color change · Chrome delete",
     intro: [
       "A vinyl wrap gives your car a new color or finish without repainting it. Gloss, satin or matte, and your factory paint stays underneath.",
-      "We wrap cars in our private studio in Bensalem, PA, and offer mobile service across Bucks County, Philadelphia, the Main Line and South Jersey.",
+      "We wrap cars in our private studio in Bensalem, PA, or come to you.",
     ],
     image: { src: "/images/work/wrap-blue-front", w: 1320, h: 1464, alt: "BMW 5 Series wrapped in satin blue vinyl, front view in the studio" },
     offerTitle: "Vinyl wrap services and starting prices",
@@ -110,7 +110,7 @@ export const servicePages: ServicePageData[] = [
     faqs: [
       { q: "How much does a car wrap cost?", a: "A full color change wrap starts at $2,500. Chrome delete starts at $300, a roof wrap at $300 and accent wraps at $150. The final price depends on the car and the film." },
       { q: "Will a wrap damage my paint?", a: "A vinyl wrap goes over your factory paint and keeps it covered while the wrap is on." },
-      { q: "Do you come to me?", a: "Yes. Mobile service is available across Bucks County, Philadelphia, the Main Line, Montgomery County and South Jersey." },
+      { q: "Do you come to me?", a: "Yes. Mobile service is available, or bring the car to our private studio in Bensalem, PA." },
     ],
     schemaName: "Vinyl Car Wrap Installation",
   },
@@ -124,7 +124,7 @@ export const servicePages: ServicePageData[] = [
     eyebrow: "Fleet · Vans · Lettering",
     intro: [
       "Your work vehicle is on the road every day. A commercial wrap or simple lettering turns it into advertising for your business.",
-      "We install commercial wraps and lettering in Bensalem, PA, and come to your business across Bucks County, Philadelphia, the Main Line and South Jersey.",
+      "We install commercial wraps and lettering in our Bensalem, PA studio or at your business.",
     ],
     image: null,
     offerTitle: "Commercial services and starting prices",
@@ -151,7 +151,7 @@ export const servicePages: ServicePageData[] = [
     ],
     faqs: [
       { q: "How much does a commercial wrap cost?", a: "Commercial wraps start at $1,500 and logos & lettering start at $250. The final price depends on the vehicle and how much of it is covered." },
-      { q: "Can you come to our business?", a: "Yes. Mobile service is available across Bucks County, Philadelphia, the Main Line, Montgomery County and South Jersey." },
+      { q: "Can you come to our business?", a: "Yes. We install at your business or in our private studio in Bensalem, PA." },
     ],
     schemaName: "Commercial Vehicle Wraps & Lettering",
   },

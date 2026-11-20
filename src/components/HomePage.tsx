@@ -1,7 +1,6 @@
 import { Header } from "./Header";
 import { Hero } from "./Hero";
 import { Services } from "./Services";
-import { Gallery } from "./Gallery";
 import { WhyUs } from "./WhyUs";
 import { QuoteForm } from "./QuoteForm";
 import { Contact } from "./Contact";
@@ -16,7 +15,6 @@ export function HomePage({ locale }: { locale: Locale }) {
       <main id="main">
         <Hero locale={locale} />
         <Services locale={locale} />
-        <Gallery />
         <WhyUs />
         <QuoteForm />
         <Contact />
