@@ -74,6 +74,7 @@ const en: Dictionary = {
       { title: "Professional Installation", text: "Careful prep, clean finish." },
       { title: "Personalized Service", text: "We help you choose." },
       { title: "Premium Materials", text: "Quality protection films and vinyl." },
+      { title: "Mobile Service", text: "We can come to you in PA / NJ." },
     ],
   },
   quote: {
@@ -105,7 +106,7 @@ const en: Dictionary = {
     instagram: "Instagram",
     quote: "Free Estimates",
     location: "Location",
-    areaValue: "Private studio in Bensalem, PA. Mobile service available.",
+    areaValue: "Private studio in Bensalem, PA.",
     areasTitle: "Areas we serve",
     areaPages: "Service areas",
     hours: "Hours",
@@ -169,6 +170,7 @@ const ru: Dictionary = {
       { title: "Профессиональная установка", text: "Подготовка и чистый результат." },
       { title: "Индивидуальный подход", text: "Поможем с выбором." },
       { title: "Качественные материалы", text: "Качественные защитные плёнки и винил." },
+      { title: "Выездной сервис", text: "Можем приехать к вам в PA / NJ." },
     ],
   },
   quote: {
@@ -200,7 +202,7 @@ const ru: Dictionary = {
     instagram: "Instagram",
     quote: "Бесплатная оценка",
     location: "Где мы",
-    areaValue: "Закрытая студия в Bensalem, PA. Возможен выезд.",
+    areaValue: "Закрытая студия в Bensalem, PA.",
     areasTitle: "Где мы работаем",
     areaPages: "Районы обслуживания",
     hours: "Часы работы",
