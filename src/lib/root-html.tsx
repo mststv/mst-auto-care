@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { site } from "@/lib/site";
 import { StructuredData } from "@/components/StructuredData";
+import Script from "next/script";
 import "@/app/globals.css";
+
+const GA_ID = "G-02HXHRZF5C";
 
 export const baseMetadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -31,6 +34,10 @@ export function RootHtml({ lang, fontClass, children }: { lang: "en" | "ru"; fon
       <body>
         <StructuredData />
         {children}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga4" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`}
+        </Script>
       </body>
     </html>
   );

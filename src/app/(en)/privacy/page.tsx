@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" updated="November 15, 2026">
+    <LegalPage title="Privacy Policy" updated="November 27, 2026">
       <p>
         {site.name} (&ldquo;we&rdquo;, &ldquo;us&rdquo;) installs vinyl wraps, paint protection film and commercial wraps in
         Pennsylvania and New Jersey. This policy explains what information we collect when you contact us through this
@@ -20,6 +20,10 @@ export default function PrivacyPage() {
         <li>Contact details you give us, such as your name, phone number and email address.</li>
         <li>Details about your vehicle and the service you are interested in, including photos you send.</li>
         <li>The content of messages you send us, including chats through Google Business Profile, which may be answered first by an automated assistant.</li>
+        <li>
+          Anonymous website usage data collected by Google Analytics through cookies, such as pages viewed, device type,
+          approximate location and how you found the site. We use it only to understand and improve the website.
+        </li>
       </ul>
       <h2>How we use it</h2>
       <ul>
@@ -37,7 +41,8 @@ export default function PrivacyPage() {
       <h2>Your choices</h2>
       <p>
         You can ask us to see, correct or delete the information we hold about you, or to stop messaging you, at any
-        time. Reply STOP to a text message or contact us below.
+        time. Reply STOP to a text message or contact us below. You can block analytics cookies in your browser settings
+        or with the <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics opt-out add-on</a>.
       </p>
       <h2>Contact</h2>
       <p>
